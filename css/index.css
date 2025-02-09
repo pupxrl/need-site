@@ -1,7 +1,7 @@
 body {
-  background-color: rgb(29, 30, 45);
+  background-color: rgb(197, 197, 197);
   color: rgb(255, 255, 255);
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -11,6 +11,15 @@ body {
   overflow: hidden;
 }
 
+#background {
+  position: absolute;
+  z-index: -1;
+  border-radius: 0;
+  width: 100%; /* Ensure it takes up the full width of the viewport */
+  height: 100%; /* Ensure it takes up the full height of the viewport */
+  object-fit: cover; /* Ensures the background image scales properly */
+}
+
 .Status {
   position: absolute;
   top: 0;
@@ -18,7 +27,7 @@ body {
 }
 
 #status {
-  font-size: 20px;
+  font-size: 12px;
 }
 
 h1 {
@@ -27,7 +36,7 @@ h1 {
   -ms-user-select: none;
   user-select: none;
   font-weight: 100;
-  font-size: 75px;
+  font-size: 50px;
   text-align: center;
   border-radius: 5px;
   padding: 30px 1%;
@@ -36,6 +45,7 @@ h1 {
   justify-content: center;
   align-items: center;
   margin: 0;
+  font-family: "Montserrat", sans-serif;
 }
 
 footer h3 {
@@ -74,13 +84,13 @@ span {
 }
 
 a {
-  font-size: 30px;
-  color: white;
+  font-size: 10px;
+  color: rgb(255, 255, 255);
   text-decoration: none;
 }
 
 a:hover {
-  color: rgb(101, 78, 156);
+  color: rgb(165, 165, 165);
 }
 
 img {
@@ -106,10 +116,10 @@ article {
 
 footer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
   width: 100%;
   text-align: center;
   margin: 0;

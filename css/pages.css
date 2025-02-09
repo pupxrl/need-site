@@ -1,6 +1,6 @@
 body {
-  background-color: rgb(29, 30, 45);
-  color: rgb(255, 255, 255);
+  background-color: rgb(23, 23, 23);
+  color: rgb(94, 94, 94);
   font-family: "Montserrat", sans-serif;
   overflow: scroll;
   margin: 0;
@@ -9,6 +9,7 @@ body {
   align-items: start;
   justify-content: left;
   height: 100vh;
+  overflow-x: hidden;
 }
 
 h2 {
@@ -20,19 +21,28 @@ h2 {
 
 #category {
   font-size: 30px;
-  color: rgb(129, 104, 198);
+  color: rgb(87, 87, 87);
 }
 
 span {
-    color: rgb(242, 241, 255);
+  color: rgb(81, 81, 81);
   font-weight: bolder;
   font-size: 20px;
 }
 
 p {
-    color: rgb(237, 228, 255);
+  max-width: 400px;
+  color: rgb(102, 102, 102);
   font-size: 15px;
   font-weight: 100;
   margin-left: 20px;
   padding: 10px;
+}
+
+a {
+  color: rgb(102, 102, 102);
+}
+
+a:hover {
+  color: grey;
 }
