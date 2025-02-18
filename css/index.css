@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(197, 197, 197);
+  background-color: rgba(25, 25, 25, 0.3);
   color: rgb(255, 255, 255);
   font-family: "Montserrat", sans-serif;
   margin: 0;
@@ -11,13 +11,20 @@ body {
   overflow: hidden;
 }
 
-#background {
-  position: absolute;
+#vingette {
+  padding: 0;
+  margin: 0;
   z-index: -1;
-  border-radius: 0;
-  width: 100%; /* Ensure it takes up the full width of the viewport */
-  height: 100%; /* Ensure it takes up the full height of the viewport */
-  object-fit: cover; /* Ensures the background image scales properly */
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: inset 50px 0 200px rgba(0, 0, 0, 0.3),
+    inset -50px 0 200px rgba(0, 0, 0, 0.3),
+    inset 0 50px 200px rgba(0, 0, 0, 0.3),
+    inset 0 -50px 200px rgba(0, 0, 0, 0.3);
 }
 
 .Status {
@@ -27,7 +34,20 @@ body {
 }
 
 #status {
-  font-size: 12px;
+  font-size: 20px;
+}
+
+header {
+  height: 200px;
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: 2px;
+  padding: 0;
+  width: 300px;
+}
+
+nav {
+  height: 50px;
 }
 
 h1 {
@@ -35,11 +55,18 @@ h1 {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  font-weight: 100;
-  font-size: 50px;
+  font-weight: 600;
+  font-size: 70px;
   text-align: center;
   border-radius: 5px;
-  padding: 30px 1%;
+  padding: 5px 1%;
+  text-shadow: 
+    0px 0px 10px rgba(0, 0, 0, 0.2),
+    10px 10px 20px rgba(0, 0, 0, 0.2),
+    20px 20px 20px rgba(0, 0, 0, 0.4),
+    30px 30px 20px rgba(0, 0, 0, 0.6),
+    40px 40px 20px rgba(0, 0, 0, 0.8),
+    50px 50px 20px rgba(0, 0, 0, 1);
   width: auto;
   display: flex;
   justify-content: center;
@@ -48,13 +75,13 @@ h1 {
   font-family: "Montserrat", sans-serif;
 }
 
-footer h3 {
+#navigation h3 {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   font-weight: 200;
-  font-size: 30px;
+  font-size: 40px;
   margin-top: 10px;
   padding: 0;
   text-align: center;
@@ -84,13 +111,16 @@ span {
 }
 
 a {
-  font-size: 10px;
+  padding: 0;
+  margin: 0;
+  font-size: 11px;
   color: rgb(255, 255, 255);
   text-decoration: none;
+  text-shadow: 1px 1px 2px black;
 }
 
 a:hover {
-  color: rgb(165, 165, 165);
+  color: rgb(227, 227, 227);
 }
 
 img {
@@ -114,7 +144,7 @@ article {
   margin: 50px;
 }
 
-footer {
+#navigation {
   display: flex;
   flex-direction: row;
   justify-content: center;

@@ -1,6 +1,6 @@
 body {
   background-color: rgb(23, 23, 23);
-  color: rgb(94, 94, 94);
+  color: rgb(225, 225, 225);
   font-family: "Montserrat", sans-serif;
   overflow: scroll;
   margin: 0;
@@ -21,18 +21,18 @@ h2 {
 
 #category {
   font-size: 30px;
-  color: rgb(87, 87, 87);
+  color: rgb(202, 202, 202);
 }
 
 span {
-  color: rgb(81, 81, 81);
+  color: rgb(186, 186, 186);
   font-weight: bolder;
   font-size: 20px;
 }
 
 p {
   max-width: 400px;
-  color: rgb(102, 102, 102);
+  color: rgb(171, 171, 171);
   font-size: 15px;
   font-weight: 100;
   margin-left: 20px;
@@ -40,7 +40,7 @@ p {
 }
 
 a {
-  color: rgb(102, 102, 102);
+  color: rgb(151, 165, 255);
 }
 
 a:hover {
