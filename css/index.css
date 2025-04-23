@@ -61,15 +61,15 @@ h1 {
   border-radius: 5px;
   padding: 5px 1%;
   width: auto;
-  display: inline-block; /* Ensures the background size is applied correctly */
+  display: inline-block;
   margin: 0;
   font-family: "Montserrat", sans-serif;
-  background: linear-gradient(45deg, #ffffff, #bfbfbf, #414141, #c0c0c0, #ffffff); /* Gradient colors */
-  background-size: 400% 400%; /* Increase the size of the gradient */
+  background: linear-gradient(45deg, #ffffff, #bfbfbf, #414141, #c0c0c0, #ffffff);
+  background-size: 400% 400%;
   background-clip: text;
-  color: transparent; /* Make the text transparent to show the gradient */
-  -webkit-background-clip: text; /* For Safari */
-  animation: gradient-animation 1s ease-in forwards; /* Play once */
+  color: transparent;
+  -webkit-background-clip: text;
+  animation: gradient-animation 1s ease-in forwards;
 }
 
 @keyframes gradient-animation {
