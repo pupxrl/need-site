@@ -1,5 +1,5 @@
 body {
-  background-color: rgba(25, 25, 25, 0.3);
+  background-color: rgba(5, 5, 5, 0.81);
   color: rgb(255, 255, 255);
   font-family: "Montserrat", sans-serif;
   margin: 0;
@@ -56,23 +56,29 @@ h1 {
   -ms-user-select: none;
   user-select: none;
   font-weight: 600;
-  font-size: 70px;
+  font-size: 100px;
   text-align: center;
   border-radius: 5px;
   padding: 5px 1%;
-  text-shadow: 
-    0px 0px 10px rgba(0, 0, 0, 0.2),
-    10px 10px 20px rgba(0, 0, 0, 0.2),
-    20px 20px 20px rgba(0, 0, 0, 0.4),
-    30px 30px 20px rgba(0, 0, 0, 0.6),
-    40px 40px 20px rgba(0, 0, 0, 0.8),
-    50px 50px 20px rgba(0, 0, 0, 1);
   width: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: inline-block; /* Ensures the background size is applied correctly */
   margin: 0;
   font-family: "Montserrat", sans-serif;
+  background: linear-gradient(45deg, #ffffff, #bfbfbf, #414141, #c0c0c0, #ffffff); /* Gradient colors */
+  background-size: 400% 400%; /* Increase the size of the gradient */
+  background-clip: text;
+  color: transparent; /* Make the text transparent to show the gradient */
+  -webkit-background-clip: text; /* For Safari */
+  animation: gradient-animation 1s ease-in forwards; /* Play once */
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
 }
 
 #navigation h3 {
@@ -82,7 +88,7 @@ h1 {
   user-select: none;
   font-weight: 200;
   font-size: 40px;
-  margin-top: 10px;
+  margin-top: 0;
   padding: 0;
   text-align: center;
 }
