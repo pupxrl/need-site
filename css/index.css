@@ -32,6 +32,11 @@ header {
   margin: 0 auto;
 }
 
+.active-page {
+  background-color: #fdceff !important;
+  color: black !important;
+}
+
 h1 {
   font-size: 70px;
   text-align: center;
@@ -154,6 +159,7 @@ article {
   color: #aaa;
   margin: 0.2rem 0 0 0;
 }
+
 .page-content {
   height: 300px;
   overflow-y: auto;
@@ -186,9 +192,9 @@ article {
   top: 1.5rem;
   right: 1.5rem;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 0.5rem;
-  padding: 0.8rem;
+  padding: 1.2rem;
   border-radius: 0.8rem;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   z-index: 10;
@@ -198,8 +204,8 @@ button {
   font-family: inherit;
   font-size: 13px;
   padding: 0.4rem 1rem;
-  background-color: #fdceff;
-  color: #1d1d1d;
+  background-color: #353535;
+  color: #cbcbcb;
   border: none;
   border-radius: 0.6rem;
   cursor: pointer;
@@ -209,7 +215,6 @@ button {
 }
 
 button:hover {
-  background-color: #fce5ff;
   transform: translateY(-1px);
 }
 

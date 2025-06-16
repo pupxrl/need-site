@@ -33,9 +33,29 @@ const pages = {
       `,
 };
 
+let currentPage = "";
+
 function showPage(pageId) {
-  const contentDiv = document.getElementById("pageContent");
-  contentDiv.innerHTML = pages[pageId] || "<p>Page not found.</p>";
+  currentPage = pageId;
+
+  const content = document.getElementById('pageContent');
+    content.innerHTML = pages[pageId] || "<p>Page not found.</p>";
+
+  setTimeout(() => {
+    content.innerHTML = getPageContent(pageId);
+    content.style.opacity = 1;
+  }, 150);
+
+  const buttons = document.querySelectorAll('.nav-buttons button');
+  buttons.forEach(btn => {
+    btn.classList.remove('active-page');
+  });
+
+  const activeButton = document.getElementById(pageId);
+  if (activeButton) {
+    activeButton.classList.add('active-page');
+  }
 }
+
 
 showPage("cashRng");
