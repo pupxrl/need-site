@@ -3,36 +3,71 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta property="og:title" content="cash net">
-    <meta property="og:image" content="https://media.discordapp.net/attachments/718993959950614631/1066061458556846100/campfire_cats.gif?ex=674b591a&is=674a079a&hm=83346eba81c18e645fdfe8b2f101ff69271b0c753b23bd75ee3afdbb081b3f6a&">
-    <meta property="og:url" content="https://pupxrl.github.io/cash-webpage/">
-    <meta property="og:type" content="website">
-    <link rel="icon" href="/images/cash.ico" type="image/x-icon">
+    <meta property="og:title" content="cash net" />
+    <meta
+      property="og:image"
+      content="https://media.discordapp.net/attachments/718993959950614631/1066061458556846100/campfire_cats.gif?ex=674b591a&is=674a079a&hm=83346eba81c18e645fdfe8b2f101ff69271b0c753b23bd75ee3afdbb081b3f6a&"
+    />
+    <meta property="og:url" content="https://pupxrl.github.io/cash-webpage/" />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="/images/cash.ico" type="image/x-icon" />
     <link rel="stylesheet" href="./css/index.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Bungee+Tint&family=Cutive+Mono&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lilita+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oooh+Baby&family=Playwrite+AR:wght@100..400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik+Bubbles&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee+Tint&family=Cutive+Mono&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lilita+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oooh+Baby&family=Playwrite+AR:wght@100..400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik+Bubbles&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap"
+      rel="stylesheet"
+    />
     <title>Cash</title>
   </head>
   <body>
-
     <div id="divider"></div>
-
-    <div class="Status">
-      <pre id="status">Loading...</pre>
-    </div>
 
     <header>
       <h1>cash</h1>
-      <p id="header_p">Features that will blow expectations away!</p>
-    </header>    
+    </header>
 
     <nav id="navigation">
+      <h3><a href="https://discord.gg/JV2bjqDfhR">Support Server</a></h3>
+      <h3 id="inviteH3">
+        <a
+          id="inviteBtn"
+          href="https://discord.com/discovery/applications/1136001498728386610"
+          >Invite</a
+        >
+      </h3>
+    </nav>
+
+    <article>
+      <div class="help-header">
+        <div class="help-text">
+          <h2 id="helpH2">Help</h2>
+          <p id="phelp">Tip: &lt;&gt; = required, [ ] = optional</p>
+        </div>
+      </div>
+
+      <div class="page-content" id="pageContent"></div>
+
+      <br />
+      <div class="nav-buttons">
+        <button onclick="showPage('cashRng')">Cash's RNG</button>
+        <button onclick="showPage('vanityrole')">Vanity Roles</button>
+        <button onclick="showPage('actionlimit')">Action Limiting</button>
+      </div>
+    </article>
+
+    <footer>
       <h3><a href="pages/terms.html">Terms of Service</a></h3>
       <h3><a href="pages/privacy_policy.html">Privacy Policy</a></h3>
-      <h3><a href="https://discord.gg/JV2bjqDfhR">Support Server</a></h3>
-      <h3><a href="https://discord.com/discovery/applications/1136001498728386610">App Directory</a></h3>
-  </nav>
+    </footer>
 
     <script src="./scripts/getMonitor.js"></script>
+    <script src="./scripts/help.js"></script>
   </body>
 </html>
