@@ -6,6 +6,7 @@ const pages = {
           <li><code>/leaderboard <scope> [limit]</code> - Displays the top users based on their rarest rolls and total number of rolls.</li>
           <li><code>/titles</code> - Shows a list of all possible titles obtainable from rolling, including their rarity and chances.</li>
           <li><code>/display-title</code> - Change the title that displays on your profile.</li>
+          <li><code>/collection [user]</code> - View your own or someone else's title collection.</li>
         </ul>
       `,
   vanityrole: `

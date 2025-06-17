@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta property="og:title" content="Invite Cash!" />
-    <meta name="og:description" content="A sleek, multifunctional Discord bot for smart server management, stylish design, and unique RNG features.">
+    <meta
+      name="og:description"
+      content="A sleek, multifunctional Discord bot for smart server management, stylish design, and unique RNG features."
+    />
     <meta
       property="og:image"
       content="https://media.discordapp.net/attachments/718993959950614631/1066061458556846100/campfire_cats.gif?ex=674b591a&is=674a079a&hm=83346eba81c18e645fdfe8b2f101ff69271b0c753b23bd75ee3afdbb081b3f6a&"
@@ -28,22 +31,30 @@
     <title>Cash</title>
   </head>
   <body>
-    <div id="divider"></div>
 
-    <header>
-      <h1>cash</h1>
-    </header>
+<header>
+  <h1>cash</h1>
+  <nav id="navigation">
+    <h3><a href="https://discord.gg/JV2bjqDfhR">Support Server</a></h3>
+    <h3 id="inviteH3">
+      <a
+        id="inviteBtn"
+        href="https://discord.com/discovery/applications/1136001498728386610"
+        >Invite</a
+      >
+    </h3>
+  </nav>
+</header>
 
-    <nav id="navigation">
-      <h3><a href="https://discord.gg/JV2bjqDfhR">Support Server</a></h3>
-      <h3 id="inviteH3">
-        <a
-          id="inviteBtn"
-          href="https://discord.com/discovery/applications/1136001498728386610"
-          >Invite</a
-        >
-      </h3>
-    </nav>
+
+    <aside class="about">
+      <img id="pfp" src="images/cash.ico" alt="cashico">
+      <h2>About Cash</h2>
+      <p>
+        A sleek, multifunctional Discord bot for smart server management,
+        stylish design, and unique RNG features.
+      </p>
+    </aside>
 
     <article>
       <div class="help-header">
@@ -58,8 +69,12 @@
       <br />
       <div class="nav-buttons">
         <button id="cashRng" onclick="showPage('cashRng')">Cash's RNG</button>
-        <button id="vanityrole" onclick="showPage('vanityrole')">Vanity Roles</button>
-        <button id="actionlimit" onclick="showPage('actionlimit')">Action Limiting</button>
+        <button id="vanityrole" onclick="showPage('vanityrole')">
+          Vanity Roles
+        </button>
+        <button id="actionlimit" onclick="showPage('actionlimit')">
+          Action Limiting
+        </button>
       </div>
     </article>
 
