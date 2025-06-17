@@ -321,13 +321,18 @@ footer {
     padding: 10px;
   }
 
-  .nav-buttons {
-    position: static;
-    margin-top: 1rem;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
-  }
+.nav-buttons {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: 0.8rem;
+  z-index: 10;
+}
+
 
   article {
     padding: 1rem;
