@@ -358,7 +358,7 @@ footer {
   #phelp {
     font-size: 0.7rem;
     color: #aaa;
-    position: absolute;
+    position: relative;
     bottom: -10px;
   }
 }
