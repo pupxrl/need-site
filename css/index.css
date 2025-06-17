@@ -30,7 +30,6 @@ body:hover::-webkit-scrollbar-thumb {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-
 #divider {
   background-color: #171717;
   width: 100%;
@@ -197,9 +196,17 @@ article {
 
 .help-text {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 1rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  height: 100%;
+}
+
+#phelp {
+  font-size: 0.9rem;
+  color: #aaa;
+  position: absolute;
+  bottom: 0;
 }
 
 #helpH2 {
@@ -207,12 +214,6 @@ article {
   margin: 0;
   font-weight: 700;
   font-size: 1.8rem;
-}
-
-#phelp {
-  font-size: 0.9rem;
-  color: #aaa;
-  margin: 0.2rem 0 0 0;
 }
 
 .page-content {
@@ -321,18 +322,17 @@ footer {
     padding: 10px;
   }
 
-.nav-buttons {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding: 1rem;
-  border-radius: 0.8rem;
-  z-index: 10;
-}
-
+  .nav-buttons {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+    border-radius: 0.8rem;
+    z-index: 10;
+  }
 
   article {
     padding: 1rem;
