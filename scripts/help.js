@@ -46,7 +46,7 @@ const pages = {
           <li><code>/action-limit [set-action-log-channel] <channel></code> - Sets a channel for logging action-limit related events.</li>
           <li><code>/action-limit [remove-action-log-channel] <true/false></code> - Removes the channel for logging action-limit related events.</li>
         </ul>
-      `
+      `,
 };
 
 let currentPage = "";
@@ -56,11 +56,6 @@ function showPage(pageId) {
 
   const content = document.getElementById("pageContent");
   content.innerHTML = pages[pageId] || "<p>Page not found.</p>";
-
-  setTimeout(() => {
-    content.innerHTML = getPageContent(pageId);
-    content.style.opacity = 1;
-  }, 150);
 
   const buttons = document.querySelectorAll(".nav-buttons button");
   buttons.forEach((btn) => {
