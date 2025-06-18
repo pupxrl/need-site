@@ -337,10 +337,9 @@ footer {
     top: 1rem;
     right: 1.5rem;
     display: grid;
-    grid-auto-flow: column;
-    grid-auto-rows: auto;
-    grid-template-rows: repeat(2, auto);
-    gap: 0.3rem;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(2, auto);
+    gap: 0.4rem;
     padding: 0.3rem;
     border-radius: 0.6rem;
     z-index: 10;
@@ -352,6 +351,8 @@ footer {
     min-width: unset;
     width: auto;
     white-space: nowrap;
+    width: 100px;
+    max-width: 120px;
   }
 
   article {
