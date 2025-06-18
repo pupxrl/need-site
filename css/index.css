@@ -225,8 +225,8 @@ article {
   transition: opacity 0.2s ease;
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
-box-shadow: inset 4px 4px 8px rgb(21, 21, 21), inset -4px -4px 8px rgb(21, 21, 21);
-
+  box-shadow: inset 4px 4px 8px rgb(21, 21, 21),
+    inset -4px -4px 8px rgb(21, 21, 21);
 }
 
 .page-content::-webkit-scrollbar {
