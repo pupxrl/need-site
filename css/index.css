@@ -322,8 +322,8 @@ footer {
   }
 
   #helpH2 {
-    padding: 10px;
-    font-size: 50px;
+    padding: 5px;
+    font-size: 45px;
   }
 
   .help-header {
@@ -333,14 +333,25 @@ footer {
   }
 
   .nav-buttons {
-    top: 0.4rem;
+    position: absolute;
+    top: 1rem;
     right: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding: 1rem;
-    border-radius: 0.8rem;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-rows: auto;
+    grid-template-rows: repeat(2, auto);
+    gap: 0.3rem;
+    padding: 0.3rem;
+    border-radius: 0.6rem;
     z-index: 10;
+  }
+
+  button {
+    font-size: 11px;
+    padding: 0.4rem 0.5rem;
+    min-width: unset;
+    width: auto;
+    white-space: nowrap;
   }
 
   article {
@@ -356,7 +367,7 @@ footer {
   }
 
   #phelp {
-    font-size: 0.7rem;
+    font-size: 1rem;
     color: #aaa;
     position: relative;
     bottom: -10px;

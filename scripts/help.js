@@ -7,6 +7,8 @@ const pages = {
           <li><code>/titles</code> - Shows a list of all possible titles obtainable from rolling, including their rarity and chances.</li>
           <li><code>/display-title</code> - Change the title that displays on your profile.</li>
           <li><code>/collection [user]</code> - View your own or someone else's title collection.</li>
+          <li><code>/favourite-title</code> - Favourite a title you own.</li>
+          <li><code>/unfavourite-title</code> - Unfavourite a title you have favourited.</li>
         </ul>
       `,
   vanityrole: `
@@ -32,6 +34,19 @@ const pages = {
           <li><code>/action-limit [remove-action-log-channel] <true/false></code> - Removes the channel for logging action-limit related events.</li>
         </ul>
       `,
+  moderation: `
+      <h3>Moderation Commands</h3>
+              <ul>
+          <li><code>/nuke</code> - Activates the action limit system, enforcing restrictions for non-whitelisted users.</li>
+          <li><code>/ban <user> [reason]</code> - Deactivates the action limit system, removing all restrictions.</li>
+          <li><code>/kick <user> [reason]</code> - Displays all currently whitelisted roles.</li>
+          <li><code>/editrole-name <role> <new_name></code> - Sets the maximum number of kicks or bans a non-whitelisted user can perform before being banned. Options: zero, one, two, three, four, five, six.</li>
+          <li><code>/editrole-permissions <role> <add/remove permission></code> - Adds a role to the whitelist, exempting its members from action limits.</li>
+          <li><code>/role <add/remove> <role> <user></code> - Removes a role from the whitelist, making its members subject to action limits.</li>
+          <li><code>/action-limit [set-action-log-channel] <channel></code> - Sets a channel for logging action-limit related events.</li>
+          <li><code>/action-limit [remove-action-log-channel] <true/false></code> - Removes the channel for logging action-limit related events.</li>
+        </ul>
+      `
 };
 
 let currentPage = "";
@@ -39,24 +54,23 @@ let currentPage = "";
 function showPage(pageId) {
   currentPage = pageId;
 
-  const content = document.getElementById('pageContent');
-    content.innerHTML = pages[pageId] || "<p>Page not found.</p>";
+  const content = document.getElementById("pageContent");
+  content.innerHTML = pages[pageId] || "<p>Page not found.</p>";
 
   setTimeout(() => {
     content.innerHTML = getPageContent(pageId);
     content.style.opacity = 1;
   }, 150);
 
-  const buttons = document.querySelectorAll('.nav-buttons button');
-  buttons.forEach(btn => {
-    btn.classList.remove('active-page');
+  const buttons = document.querySelectorAll(".nav-buttons button");
+  buttons.forEach((btn) => {
+    btn.classList.remove("active-page");
   });
 
   const activeButton = document.getElementById(pageId);
   if (activeButton) {
-    activeButton.classList.add('active-page');
+    activeButton.classList.add("active-page");
   }
 }
-
 
 showPage("cashRng");
