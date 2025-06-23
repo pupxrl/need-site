@@ -76,20 +76,15 @@ body:hover::-webkit-scrollbar-thumb {
 }
 
 header {
-  margin-top: 15%;
   position: relative;
-  width: 100%;
+  width: 95%;
+  height: 95vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   padding: 1rem 0 2rem 0;
   z-index: 2;
-  margin-bottom: 20%;
-}
-
-.active-page {
-  background-color: rgb(255, 198, 218) !important;
-  color: black !important;
 }
 
 h1 {
@@ -106,6 +101,11 @@ h1 {
   user-select: none;
   -webkit-user-select: none;
   font-family: "Indie Flower", cursive;
+}
+
+.active-page {
+  background-color: rgb(255, 198, 218) !important;
+  color: black !important;
 }
 
 @keyframes gradient-animation {
