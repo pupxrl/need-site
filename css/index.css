@@ -23,7 +23,6 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
   background-color: rgba(255, 255, 255, 0.05);
   border-radius: 10px;
-  transition: background-color 0.3s ease;
 }
 
 body:hover::-webkit-scrollbar-thumb {
@@ -52,7 +51,7 @@ body:hover::-webkit-scrollbar-thumb {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: rgba(255, 179, 235, 0.8);
+  background-color: rgba(255, 198, 218, 0.9);
   margin-bottom: 50px;
   color: black;
 }
@@ -89,7 +88,7 @@ header {
 }
 
 .active-page {
-  background-color: #fdceff !important;
+  background-color: rgb(255, 198, 218) !important;
   color: black !important;
 }
 
@@ -98,14 +97,7 @@ h1 {
   text-align: center;
   padding: 0;
   margin: 0;
-  background: linear-gradient(
-    45deg,
-    #fcbdff,
-    #ffa1e0,
-    #fcbdff,
-    #ffa1e0,
-    #fcbdff
-  );
+  background-color: rgb(255, 198, 218);
   background-size: 400% 400%;
   background-clip: text;
   color: transparent;
@@ -139,11 +131,11 @@ h1 {
 }
 
 #inviteH3 {
-  background-color: #fcbdff;
+  background-color: rgb(255, 198, 218);
 }
 
 #inviteH3:hover {
-  background-color: rgb(255, 219, 254);
+  background-color: rgb(189, 145, 160);
 }
 
 #navigation h3 {
@@ -209,7 +201,7 @@ article {
 }
 
 #helpH2 {
-  color: #fcbdff;
+  color: rgb(255, 198, 218);
   margin: 0;
   font-weight: 700;
   font-size: 2.4rem;
@@ -238,13 +230,13 @@ article {
 }
 
 .page-content::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(73, 73, 73, 0.551);
   border-radius: 10px;
   transition: background-color 0.3s ease;
 }
 
 .page-content:hover::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(73, 73, 73, 0.551);
 }
 
 .nav-buttons {
@@ -289,7 +281,7 @@ a {
 }
 
 a:hover {
-  color: #fcbdff;
+  color: rgb(255, 198, 218);
 }
 
 footer {
