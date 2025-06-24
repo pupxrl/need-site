@@ -9,6 +9,7 @@ const pages = {
           <li><code>/collection [user]</code> - View your own or someone else's title collection.</li>
           <li><code>/favourite-title</code> - Favourite a title you own.</li>
           <li><code>/unfavourite-title</code> - Unfavourite a title you have favourited.</li>
+          <li><code>/sell (title)</code> - Sell a title for money.</li>
         </ul>
       `,
   vanityrole: `
