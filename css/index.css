@@ -182,20 +182,25 @@ article {
   position: relative;
   padding: 2rem 2rem 3rem 2rem;
   border-radius: 1rem;
-  max-width: 950px;
-  width: 100%;
+  max-width: 100%;
+  width: 140vh;
   display: flex;
   flex-direction: column;
   height: auto;
   box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #commandHeader {
   color: #ffffff;
   margin: 0;
   font-weight: 700;
-  font-size: 2rem;
+  font-size: 1.5rem;
   padding: 20px;
+  font-weight: 400;
+  letter-spacing: -1px;
 }
 
 button {
@@ -293,7 +298,7 @@ footer {
   gap: 1.5rem;
   padding: 1rem;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1500px;
   margin: 0 auto;
   box-sizing: border-box;
   justify-content: center;
@@ -301,8 +306,8 @@ footer {
 
 .command-card {
   background-color: #151515;
-  border-radius: 12px;
-  padding: 1rem;
+  border-radius: 30px;
+  padding: 1.5rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   color: #fff;
   cursor: default;
@@ -314,19 +319,26 @@ footer {
   border: 1px solid rgba(78, 78, 78, 0.349);
 }
 
+#line {
+  height: 1px;
+  background-color: rgba(78, 78, 78, 0.349);
+  margin-top: 20px;
+}
+
 .command-card h4 {
-  margin-bottom: 0.5rem;
   font-weight: 700;
   font-size: 1rem;
-  margin: 0.25rem 0;
-  padding: 10px;
+  line-height: 1.2;
+  margin: 0;
+  padding: 5px;
 }
 
 .command-card p {
   text-align: left;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   line-height: 1.2;
-  margin: 0.25rem 0;
+  margin-top: 2px;
+  padding: 5px;
 }
 
 @media (max-width: 1000px) {
@@ -353,8 +365,8 @@ footer {
   -webkit-overflow-scrolling: touch;
   background-color: rgb(20, 20, 20);
   overflow-y: hidden;
-  border-radius: 10px;
-  height: 60px;
+  border-radius: 20px;
+  height: 55px;
   width: 100%;
   align-items: center;
   justify-content: start;
@@ -373,7 +385,9 @@ footer {
   display: grid;
   place-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 #categoryNav::-webkit-scrollbar {

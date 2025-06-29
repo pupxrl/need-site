@@ -171,14 +171,14 @@ function renderCommands(category) {
     card.className = "command-card";
     card.innerHTML = `
       <h4>${cmd.name}</h4>
-      <p>${cmd.description}</p>
-      ${
-        cmd.aliases == null
-          ? ""
-          : `<p><strong>Aliases:</strong> ${cmd.aliases}</p>`
-      }
-      <p><strong>Arguments:</strong> ${cmd.arguments}</p>
-      <p><strong>Permissions:</strong> ${cmd.permissions}</p>
+      <p>${cmd.description} <div id="line"></p>
+      <p><strong>Arguments:</strong> <br>${cmd.arguments}</p>
+      <p><strong>Permissions:</strong> <br>${cmd.permissions}</p>
+            ${
+              cmd.aliases == null
+                ? ""
+                : `<p><strong>Aliases:</strong> <br>${cmd.aliases}</p>`
+            }
     `;
     container.appendChild(card);
   });
@@ -188,7 +188,6 @@ function switchCategory(category) {
   currentCategory = category;
   renderCommands(category);
 
-  // Update active button
   document.querySelectorAll("#categoryNav button").forEach((btn) => {
     btn.classList.toggle("active-category", btn.id === category);
   });
