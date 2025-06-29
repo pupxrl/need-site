@@ -1,5 +1,5 @@
 body {
-  background-color: #1b1b1b;
+  background-color: #1c1d24;
   color: #fff;
   font-family: "Montserrat", sans-serif;
   margin: 0;
@@ -51,7 +51,7 @@ body:hover::-webkit-scrollbar-thumb {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: rgba(255, 198, 218, 0.9);
+  background-color: #85bbe8c4;
   margin-bottom: 50px;
   color: black;
 }
@@ -60,6 +60,7 @@ body:hover::-webkit-scrollbar-thumb {
   border-radius: 50%;
   height: 100px;
   width: 100px;
+    box-shadow: inset 4px 4px 8px black;
 }
 
 .about h2 {
@@ -87,24 +88,28 @@ header {
   z-index: 2;
 }
 
+@font-face {
+  font-family: "Get Schwifty";
+  src: url("../fonts//get_schwifty.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 h1 {
-  font-size: 150px;
+  font-size: 200px;
   text-align: center;
-  padding: 0;
-  margin: 0;
-  background-color: rgb(255, 198, 218);
-  background-size: 400% 400%;
-  background-clip: text;
-  color: transparent;
-  -webkit-background-clip: text;
-  animation: gradient-animation 5s ease infinite;
-  user-select: none;
-  -webkit-user-select: none;
-  font-family: "Indie Flower", cursive;
+  margin: 10px;
+  color: #85bbe8;
+  font-family: "Get Schwifty", Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: -0.15em;
+  position: relative;
+  text-shadow: 4px 4px 20px black;
+  transform: scaleX(1.3);
 }
 
 .active-page {
-  background-color: rgb(255, 198, 218) !important;
+  background-color: #85bbe8 !important;
   color: black !important;
 }
 
@@ -131,11 +136,11 @@ h1 {
 }
 
 #inviteH3 {
-  background-color: rgb(255, 198, 218);
+  background-color: #85bbe8;
 }
 
 #inviteH3:hover {
-  background-color: rgb(189, 145, 160);
+  background-color: #6d9abe;
 }
 
 #navigation h3 {
@@ -201,7 +206,7 @@ article {
 }
 
 #helpH2 {
-  color: rgb(255, 198, 218);
+  color: #85bbe8;
   margin: 0;
   font-weight: 700;
   font-size: 2.4rem;
@@ -281,7 +286,7 @@ a {
 }
 
 a:hover {
-  color: rgb(255, 198, 218);
+  color: #b3dafa;
 }
 
 footer {
@@ -298,7 +303,7 @@ footer {
 
 @media only screen and (max-width: 768px) {
   header h1 {
-    font-size: 60px;
+    font-size: 100px;
   }
 
   #navigation {

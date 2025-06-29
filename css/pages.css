@@ -26,7 +26,7 @@ h2 {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 2.8rem;
   margin-bottom: 20px;
-  color: #fcbdff;
+  color: #85bbe8;
   border-bottom: 1px solid #333;
   padding-bottom: 10px;
 }
@@ -35,7 +35,7 @@ h3 {
   font-size: 1.6rem;
   margin-top: 30px;
   margin-bottom: 10px;
-  color: #e3baff;
+  color: #85bbe8;
 }
 
 #category {
@@ -65,7 +65,7 @@ p {
 }
 
 a {
-  color: #97a5ff;
+  color: #d2e9ff;
   text-decoration: underline;
   transition: color 0.2s ease;
 }
