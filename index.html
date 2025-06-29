@@ -32,12 +32,12 @@
   </head>
   <body>
     <header>
-      <h1>cash</h1>
+      <img id="pfp" src="images/cash.ico" alt="cashico" />
       <nav id="navigation">
+        <h3><a href="#events">Events</a></h3>
         <h3><a href="https://discord.gg/JV2bjqDfhR">Support Server</a></h3>
-        <h3 id="inviteH3">
+        <h3>
           <a
-            id="inviteBtn"
             href="https://discord.com/discovery/applications/1136001498728386610"
             >Invite</a
           >
@@ -45,46 +45,12 @@
       </nav>
     </header>
 
-    <aside class="about">
-      <img id="pfp" src="images/cash.ico" alt="cashico" />
-      <h2>About Cash</h2>
-      <p>
-        A sleek, multifunctional Discord bot for smart server management,
-        stylish design, and unique RNG features.
-      </p>
-    </aside>
-
     <article>
-      <div class="help-header">
-        <div class="help-text">
-          <h2 id="helpH2">Help</h2>
-        </div>
-      </div>
+          <h2 id="commandHeader">Commands</h2>
 
       <div class="page-content" id="pageContent"></div>
-
-      <br />
-      <div class="nav-buttons">
-        <button id="cashRng" onclick="showPage('cashRng')">Cash's RNG</button>
-        <button id="vanityrole" onclick="showPage('vanityrole')">
-          Vanity Roles
-        </button>
-        <button id="actionlimit" onclick="showPage('actionlimit')">
-          Action Limiting
-        </button>
-        <button id="moderation" onclick="showPage('moderation')">
-          Moderation
-        </button>
-      </div>
-      <p id="phelp">Tip: ( ) = required, [ ] = optional</p>
     </article>
 
-    <footer>
-      <h3><a href="pages/terms.html">Terms of Service</a></h3>
-      <h3><a href="pages/privacy_policy.html">Privacy Policy</a></h3>
-    </footer>
-
-    <script src="./scripts/getMonitor.js"></script>
-    <script src="./scripts/help.js"></script>
+    <script src="./scripts/commands.js"></script>
   </body>
 </html>
