@@ -3,54 +3,225 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO & Meta -->
     <meta property="og:title" content="Invite Cash!" />
     <meta
-      name="og:description"
-      content="Cash is the only bot you'll need. Boost user experience with powerful moderation and a unique RNG adventure RPG: roll to earn titles, trigger events, and explore rich, text-based lore."
+      name="description"
+      content="Cash: moderation + RPG bot for Discord servers."
     />
     <meta
       property="og:image"
-      content="https://media.discordapp.net/attachments/718993959950614631/1066061458556846100/campfire_cats.gif?ex=674b591a&is=674a079a&hm=83346eba81c18e645fdfe8b2f101ff69271b0c753b23bd75ee3afdbb081b3f6a&"
+      content="https://media.discordapp.net/attachments/718993959950614631/1066061458556846100/campfire_cats.gif"
     />
     <meta property="og:url" content="https://pupxrl.github.io/cash-webpage/" />
     <meta property="og:type" content="website" />
+
+    <!-- Icons & Title -->
     <link rel="icon" href="./images/cash.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="./css/index.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bungee+Tint&family=Cutive+Mono&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lilita+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oooh+Baby&family=Playwrite+AR:wght@100..400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik+Bubbles&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap"
-      rel="stylesheet"
-    />
     <title>Cash</title>
+
+    <!-- Bulma CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css"
+    />
+
+    <!-- Other -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Get+Schwifty&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <style>
+      /* Smooth fade transition */
+      .fade-section {
+        transition: opacity 0.3s ease;
+      }
+      .is-hidden {
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+        left: -9999px;
+      }
+    </style>
   </head>
+
   <body>
-    <header>
-      <img id="pfp" src="images/cash.ico" alt="cashico" />
-      <nav id="navigation">
-        <h3><a href="#events">Events</a></h3>
-        <h3><a href="https://discord.gg/JV2bjqDfhR">Support Server</a></h3>
-        <h3>
+    <canvas id="particles"></canvas>
+
+    <img src="./images/cash.ico" id="pfp" alt="Cash Icon" />
+
+    <!-- Navbar -->
+    <nav
+      class="navbar is-dark is-radiusless"
+      role="navigation"
+      aria-label="main navigation"
+    >
+      <div class="navbar-brand">
+        <!-- Mobile Menu -->
+        <a
+          role="button"
+          class="navbar-burger"
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="navbarMenu"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarMenu" class="navbar-menu">
+        <div class="navbar-end">
+          <a class="navbar-item nav-link" data-target="landing">Home</a>
+          <a class="navbar-item nav-link" data-target="commands">Commands</a>
+          <a class="navbar-item" href="https://discord.gg/JV2bjqDfhR"
+            >Support Server</a
+          >
           <a
-            href="https://discord.com/discovery/applications/1136001498728386610"
+            class="navbar-item has-text-weight-bold"
+            href="https://discord.com/oauth2/authorize?client_id=1136001498728386610"
             >Invite</a
           >
-        </h3>
-      </nav>
-    </header>
+        </div>
+      </div>
+    </nav>
 
-    <article>
-          <h2 id="commandHeader">Commands</h2>
+    <!-- Landing Page Content -->
+    <section id="landing" class="section fade-section">
+      <div class="container">
+        <div class="columns is-vcentered">
+          <!-- Left Side Text -->
+          <div class="column is-half">
+            <h2 id="header2" class="title is-2 has-text-left">
+              Cash is Discord’s<br />all-in-one premier app.
+            </h2>
+            <p id="paragraph2" class="subtitle is-5 has-text-left">
+              Moderation. RNG. Voice Control. Level up your server with
+              powerful, seamless, and customizable commands.
+            </p>
+            <div class="buttons mt-4">
+              <a
+                href="https://discord.gg/JV2bjqDfhR"
+                class="button is-large has-text-white"
+                style="
+                  height: 50px;
+                  font-size: 17px;
+                  width: 180px;
+                  border-radius: 25px;
+                  background: linear-gradient(
+                    0,
+                    rgba(161, 216, 255, 0.05),
+                    rgba(216, 239, 255, 0.1)
+                  );
+                  border: none;
+                "
+              >
+                Invite to Discord
+              </a>
+              <a
+                href="https://discord.com/discovery/applications/1136001498728386610"
+                class="button is-large has-text-white"
+                style="
+                  height: 50px;
+                  font-size: 17px;
+                  width: 150px;
+                  border-radius: 25px;
+                  background: linear-gradient(
+                    0,
+                    rgba(161, 216, 255, 0.05),
+                    rgba(216, 239, 255, 0.1)
+                  );
+                  border: none;
+                "
+              >
+                Add Cash
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <div class="page-content" id="pageContent"></div>
-    </article>
+    <!-- Commands Section (Initially Hidden) -->
+    <section id="commands" class="section fade-section is-hidden">
+      <div
+        class="field has-addons is-justify-content-center mb-5"
+        id="commandSearchWrapper"
+      >
+        <div
+          class="control has-icons-left is-expanded"
+          style="max-width: 400px; width: 100%"
+        >
+          <input
+            id="commandSearch"
+            class="input is-rounded"
+            type="text"
+            placeholder="Search commands..."
+          />
+          <span class="icon is-left">
+            <i class="fas fa-search"></i>
+          </span>
+        </div>
+      </div>
 
+      <div class="container">
+        <h2 class="title has-text-centered is-3">Commands</h2>
+
+        <!-- Category Navigation -->
+        <div
+          class="tabs is-centered is-toggle is-toggle-rounded is-info"
+          id="categoryNav"
+        >
+          <ul>
+            <li class="is-active" data-category="rng"><a>RNG</a></li>
+            <li data-category="moderation"><a>Moderation</a></li>
+            <li data-category="information"><a>Information</a></li>
+            <li data-category="voicecontrol"><a>VoiceControl</a></li>
+            <li data-category="misc"><a>Misc</a></li>
+          </ul>
+        </div>
+
+        <!-- Command Categories -->
+        <div id="rng" class="command-category columns is-multiline"></div>
+        <div
+          id="moderation"
+          class="command-category columns is-multiline is-hidden"
+        ></div>
+        <div
+          id="information"
+          class="command-category columns is-multiline is-hidden"
+        ></div>
+        <div
+          id="voicecontrol"
+          class="command-category columns is-multiline is-hidden"
+        ></div>
+        <div
+          id="misc"
+          class="command-category columns is-multiline is-hidden"
+        ></div>
+      </div>
+    </section>
+
+    <!-- JavaScript -->
     <script src="./scripts/commands.js"></script>
+    <script src="./scripts/particles.js"></script>
+    <script src="./scripts/pageSwitching.js"></script>
+    <script src="./scripts/search.js"></script>
   </body>
 </html>

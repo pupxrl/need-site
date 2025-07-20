@@ -1,4 +1,3 @@
-// commands.js
 const commandPages = {
   rng: [
     {
@@ -17,8 +16,9 @@ const commandPages = {
     },
     {
       name: "title",
-      description: "Displays all titles you can obtain.",
-      arguments: "None",
+      description:
+        "Manage your titles (equip a title or view all titles and drop chances).",
+      arguments: "equip-title, showcase",
       permissions: "Everyone",
       aliases: null,
     },
@@ -79,8 +79,43 @@ const commandPages = {
       aliases: null,
     },
     {
-      name: "shop",
-      description: "View the rng shop.",
+      name: "shop gear",
+      description: "View gear shop.",
+      arguments: "None",
+      permissions: "Everyone",
+      aliases: null,
+    },
+        {
+      name: "shop consumable",
+      description: "View consumable shop.",
+      arguments: "None",
+      permissions: "Everyone",
+      aliases: null,
+    },
+        {
+      name: "shop relic",
+      description: "View relic shop.",
+      arguments: "None",
+      permissions: "Everyone",
+      aliases: null,
+    },
+    {
+      name: "sell title sell_one",
+      description: "Sell a title from your inventory.",
+      arguments: "None",
+      permissions: "Everyone",
+      aliases: null,
+    },
+        {
+      name: "sell title sell_inventory",
+      description: "Sell all titles in your inventory.",
+      arguments: "None",
+      permissions: "Everyone",
+      aliases: null,
+    },
+    {
+      name: "inventory",
+      description: "View your current inventory.",
       arguments: "None",
       permissions: "Everyone",
       aliases: null,
@@ -103,9 +138,25 @@ const commandPages = {
     },
     {
       name: "role",
-      description: "Discover lots of role managing command options.",
-      arguments: "manage, edit",
+      description:
+        "Manage roles and permissions. Subcommands for managing roles on users (add/remove) and editing role properties (name, permissions).",
+      arguments: "manage add/remove user role, edit name/permissions role",
       permissions: "Manage Roles",
+      aliases: null,
+    },
+    {
+      name: "nuke",
+      description: "Duplicate the current channel and delete the original.",
+      arguments: "None",
+      permissions: "Manage Channels",
+      aliases: null,
+    },
+    {
+      name: "action-limit",
+      description: "Configure action limits and whitelists for roles.",
+      arguments:
+        "enable, disable, set-limit, whitelist-add, whitelist-remove, list-whitelisted-roles, set-log-channel, remove-log-channel",
+      permissions: "Owner",
       aliases: null,
     },
   ],
@@ -113,85 +164,167 @@ const commandPages = {
     {
       name: "userinfo",
       description: "View information about yourself or a member.",
-      arguments: "user",
+      arguments: "prefix, user",
       permissions: "Everyone",
       aliases: ";userinfo, ;ui",
     },
     {
       name: "serverinfo",
       description: "View information about the server.",
-      arguments: "None",
+      arguments: "prefix",
       permissions: "Everyone",
       aliases: ";serverinfo, ;si",
+    },
+    {
+      name: "vanity",
+      description: "Manage the server's vanity-role settings.",
+      arguments: "None",
+      permissions: "Manage Server",
+      aliases: null,
+    },
+  ],
+  voicecontrol: [
+    {
+      name: "/voicecontrol setup",
+      description: "Setup the voice control system.",
+      arguments: "None",
+      permissions: "Administrator",
+      aliases: null,
+    },
+    {
+      name: "/voicecontrol destroy",
+      description: "Destroy the voice control system.",
+      arguments: "None",
+      permissions: "Administrator",
+      aliases: null,
+    },
+    {
+      name: "accept",
+      description: "Accept a user into your voice channel to join.",
+      arguments: "prefix, user",
+      permissions: "VC Owner",
+      aliases: null,
+    },
+    {
+      name: "claim",
+      description: "Claim ownership of a voice channel.",
+      arguments: "prefix",
+      permissions: "VC Owner",
+      aliases: null,
+    },
+    {
+      name: "lock",
+      description: "Lock the voice channel.",
+      arguments: "prefix",
+      permissions: "VC Owner",
+      aliases: "",
+    },
+    {
+      name: "unlock",
+      description: "Unlock the voice channel.",
+      arguments: "prefix",
+      permissions: "VC Owner",
+      aliases: "",
+    },
+    {
+      name: "reject",
+      description: "Reject someone from joining your voice channel.",
+      arguments: "prefix",
+      permissions: "VC Owner",
+      aliases: null,
+    },
+  ],
+  misc: [
+    {
+      name: "help",
+      description: "Show help information and available commands.",
+      arguments: "None",
+      permissions: "Everyone",
+      aliases: null,
+    },
+    {
+      name: "welcome-message",
+      description:
+        "Manage welcome messages with subcommands to enable (with channel and message) or disable them.",
+      arguments: "enable, disable",
+      permissions: "Manage Server",
+      aliases: null,
     },
   ],
 };
 
-let currentCategory = "rng";
-
-function createCategoryNav() {
-  // Remove existing nav if any
-  const existingNav = document.getElementById("categoryNav");
-  if (existingNav) existingNav.remove();
-
-  const container = document.getElementById("pageContent");
-  const nav = document.createElement("div");
-  nav.id = "categoryNav";
-
-  // Create buttons for each category key
-  Object.keys(commandPages).forEach((category) => {
-    const btn = document.createElement("button");
-    btn.id = category;
-    btn.textContent = category.charAt(0).toUpperCase() + category.slice(1);
-    if (category === currentCategory) {
-      btn.classList.add("active-category");
-    }
-
-    btn.addEventListener("click", () => {
-      switchCategory(category);
-      // Scroll clicked button smoothly into center
-      btn.scrollIntoView({ behavior: "smooth", inline: "center" });
-    });
-
-    nav.appendChild(btn);
-  });
-
-  // Insert nav before commands grid
-  container.parentNode.insertBefore(nav, container);
-}
-
-function renderCommands(category) {
-  const container = document.getElementById("pageContent");
+function renderCommandsToSection(category, containerId) {
+  const container = document.getElementById(containerId);
   container.innerHTML = "";
 
   const commands = commandPages[category] || [];
 
   commands.forEach((cmd) => {
     const card = document.createElement("div");
-    card.className = "command-card";
+    card.className = "column is-one-third";
+
     card.innerHTML = `
-      <h4>${cmd.name}</h4>
-      <p>${cmd.description} <div id="line"></p>
-      <p><strong>Arguments:</strong> <br>${cmd.arguments}</p>
-      <p><strong>Permissions:</strong> <br>${cmd.permissions}</p>
-            ${
-              cmd.aliases == null
-                ? ""
-                : `<p><strong>Aliases:</strong> <br>${cmd.aliases}</p>`
-            }
+      <div class="card has-background-dark has-text-white-ter" style="height: 100%;">
+        <div class="card-content">
+          <h4 class="title is-5 has-text-info">${cmd.name}</h4>
+          <p class="mb-2">${cmd.description}</p>
+          <p><strong>Arguments:</strong><br>${cmd.arguments}</p>
+          <p><strong>Permissions:</strong><br>${cmd.permissions}</p>
+          ${
+            cmd.aliases
+              ? `<p><strong>Aliases:</strong><br>${cmd.aliases}</p>`
+              : ""
+          }
+        </div>
+      </div>
     `;
     container.appendChild(card);
   });
 }
 
-function switchCategory(category) {
-  currentCategory = category;
-  renderCommands(category);
+let tabs, sections;
 
-  document.querySelectorAll("#categoryNav button").forEach((btn) => {
-    btn.classList.toggle("active-category", btn.id === category);
+function initTabs() {
+  tabs = document.querySelectorAll("#categoryNav li");
+  sections = document.querySelectorAll(".command-category");
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      tabs.forEach((t) => t.classList.remove("is-active"));
+      tab.classList.add("is-active");
+
+      sections.forEach((section) => section.classList.add("is-hidden"));
+
+      const selected = tab.dataset.category;
+      const target = document.getElementById(selected);
+      if (target) {
+        target.classList.remove("is-hidden");
+      }
+    });
   });
 }
 
-createCategoryNav();
-renderCommands(currentCategory);
+document.addEventListener("DOMContentLoaded", () => {
+  renderCommandsToSection("rng", "rng");
+  renderCommandsToSection("moderation", "moderation");
+  renderCommandsToSection("information", "information");
+  renderCommandsToSection("voicecontrol", "voicecontrol");
+  renderCommandsToSection("misc", "misc");
+
+  sections = document.querySelectorAll(".command-category");
+  sections.forEach((section) => {
+    if (section.id !== "rng") {
+      section.classList.add("is-hidden");
+    }
+  });
+
+  tabs = document.querySelectorAll("#categoryNav li");
+  tabs.forEach((tab) => {
+    tab.classList.remove("is-active");
+    if (tab.dataset.category === "rng") {
+      tab.classList.add("is-active");
+    }
+  });
+
+  initTabs();
+});

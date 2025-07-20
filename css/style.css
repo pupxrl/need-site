@@ -1,0 +1,164 @@
+body {
+  background-color: #121212;
+  color: #eee;
+  position: relative;
+  overflow-x: hidden;
+  font-family: "Montserrat", sans-serif;
+  background-image: radial-gradient(
+      circle at 30% 30%,
+      rgba(0, 149, 255, 0.05),
+      transparent 60%
+    ),
+    radial-gradient(circle at 70% 70%, rgba(0, 149, 255, 0.05), transparent 60%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.navbar.is-dark {
+  background-color: transparent !important;
+  box-shadow: none;
+  border-bottom: none;
+}
+
+.navbar.is-dark,
+.navbar.is-dark .navbar-burger span {
+  color: #eee;
+}
+
+.navbar.is-dark .navbar-burger span {
+  background-color: #eee;
+}
+
+#pfp {
+  position: absolute;
+  left: 23vh;
+  top: 20px;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+}
+
+.command-card {
+  background-color: #151515;
+  border-radius: 20px;
+  padding: 1.5rem;
+  color: white;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgba(78, 78, 78, 0.349);
+  transition: transform 0.3s ease;
+}
+
+.command-card:hover {
+  transform: translateY(-5px);
+}
+
+#categoryNav {
+  overflow-x: auto;
+  padding: 0.5rem;
+  white-space: nowrap;
+}
+
+#categoryNav::-webkit-scrollbar {
+  height: 4px;
+}
+
+#categoryNav::-webkit-scrollbar-thumb {
+  background: rgba(133, 187, 232, 0.3);
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .custom-title {
+    font-size: 2.5rem;
+  }
+
+  #pfp {
+    height: 40px;
+    width: 40px;
+  }
+}
+
+#particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  background: transparent;
+}
+
+#landing {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+#landing .container {
+  height: 10%;
+  left: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#header2 {
+  margin-bottom: 30px;
+}
+
+#paragraph2 {
+  margin-bottom: 60px;
+}
+
+#commandSearchWrapper {
+  margin-top: 1rem;
+}
+
+#commandSearch {
+  background-color: #1e1e1e;
+  border: none;
+  color: white;
+}
+
+#commandSearch::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.2s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
