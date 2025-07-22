@@ -1,143 +1,21 @@
 const commandPages = {
-  rng: [
-    {
-      name: "roll",
-      description: "Generates a random title based on rarity chances.",
-      arguments: "None",
-      permissions: "Everyone",
-      aliases: ";roll, ;r",
-    },
-    {
-      name: "leaderboard",
-      description: "Displays top users by rarest rolls and roll count.",
-      arguments: "scope, limit",
-      permissions: "Everyone",
-      aliases: null,
-    },
-    {
-      name: "title",
-      description:
-        "Manage your titles (equip a title or view all titles and drop chances).",
-      arguments: "equip-title, showcase",
-      permissions: "Everyone",
-      aliases: null,
-    },
-    {
-      name: "gear view",
-      description: "Generates a random title based on rarity chances.",
-      arguments: "None",
-      permissions: "Everyone",
-      aliases: null,
-    },
-    {
-      name: "gear equip",
-      description: "Displays top users by rarest rolls and roll count.",
-      arguments: "scope, limit",
-      permissions: "Everyone",
-      aliases: null,
-    },
-    {
-      name: "gear unequip",
-      description: "Displays all titles you can obtain.",
-      arguments: "None",
-      permissions: "Everyone",
-      aliases: null,
-    },
-    {
-      name: "favourite-title",
-      description: "Favourite a title you own.",
-      arguments: "None",
-      permissions: "Everyone",
-      aliases: null,
-    },
-    {
-      name: "unfavourite-title",
-      description: "Unfavourite a title you have favourited.",
-      arguments: "None",
-      permissions: "Everyone",
-      aliases: null,
-    },
-    {
-      name: "collection",
-      description: "View your own or someone else's title collection.",
-      arguments: "user",
-      permissions: "Everyone",
-      aliases: null,
-    },
-    {
-      name: "loadout save",
-      description: "Save your current equipped gear to a slot.",
-      arguments: "None",
-      permissions: "Everyone",
-      aliases: null,
-    },
-    {
-      name: "loadout load",
-      description: "Load a gear slot.",
-      arguments: "None",
-      permissions: "Everyone",
-      aliases: null,
-    },
-    {
-      name: "shop gear",
-      description: "View gear shop.",
-      arguments: "None",
-      permissions: "Everyone",
-      aliases: null,
-    },
-        {
-      name: "shop consumable",
-      description: "View consumable shop.",
-      arguments: "None",
-      permissions: "Everyone",
-      aliases: null,
-    },
-        {
-      name: "shop relic",
-      description: "View relic shop.",
-      arguments: "None",
-      permissions: "Everyone",
-      aliases: null,
-    },
-    {
-      name: "sell title sell_one",
-      description: "Sell a title from your inventory.",
-      arguments: "None",
-      permissions: "Everyone",
-      aliases: null,
-    },
-        {
-      name: "sell title sell_inventory",
-      description: "Sell all titles in your inventory.",
-      arguments: "None",
-      permissions: "Everyone",
-      aliases: null,
-    },
-    {
-      name: "inventory",
-      description: "View your current inventory.",
-      arguments: "None",
-      permissions: "Everyone",
-      aliases: null,
-    },
-  ],
   moderation: [
     {
-      name: "ban",
+      name: "/ban",
       description: "Ban someone from the server.",
       arguments: "user, reason",
       permissions: "Ban Members",
       aliases: null,
     },
     {
-      name: "kick",
+      name: "/kick",
       description: "Kick someone from the server.",
       arguments: "user, reason",
       permissions: "Kick Members",
       aliases: null,
     },
     {
-      name: "role",
+      name: "/role",
       description:
         "Manage roles and permissions. Subcommands for managing roles on users (add/remove) and editing role properties (name, permissions).",
       arguments: "manage add/remove user role, edit name/permissions role",
@@ -145,14 +23,14 @@ const commandPages = {
       aliases: null,
     },
     {
-      name: "nuke",
+      name: "/nuke",
       description: "Duplicate the current channel and delete the original.",
       arguments: "None",
       permissions: "Manage Channels",
       aliases: null,
     },
     {
-      name: "action-limit",
+      name: "/action-limit",
       description: "Configure action limits and whitelists for roles.",
       arguments:
         "enable, disable, set-limit, whitelist-add, whitelist-remove, list-whitelisted-roles, set-log-channel, remove-log-channel",
@@ -217,14 +95,14 @@ const commandPages = {
       description: "Lock the voice channel.",
       arguments: "prefix",
       permissions: "VC Owner",
-      aliases: "",
+      aliases: null,
     },
     {
       name: "unlock",
       description: "Unlock the voice channel.",
       arguments: "prefix",
       permissions: "VC Owner",
-      aliases: "",
+      aliases: null,
     },
     {
       name: "reject",
@@ -234,7 +112,7 @@ const commandPages = {
       aliases: null,
     },
   ],
-  misc: [
+  utility: [
     {
       name: "help",
       description: "Show help information and available commands.",
@@ -243,11 +121,18 @@ const commandPages = {
       aliases: null,
     },
     {
-      name: "welcome-message",
+      name: "/welcome-message",
       description:
         "Manage welcome messages with subcommands to enable (with channel and message) or disable them.",
       arguments: "enable, disable",
       permissions: "Manage Server",
+      aliases: null,
+    },
+    {
+      name: "prefix",
+      description: "View and change the cash's prefix for the current server.",
+      arguments: "view, set",
+      permissions: "Administrator",
       aliases: null,
     },
   ],
@@ -305,23 +190,23 @@ function initTabs() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  renderCommandsToSection("rng", "rng");
   renderCommandsToSection("moderation", "moderation");
   renderCommandsToSection("information", "information");
   renderCommandsToSection("voicecontrol", "voicecontrol");
-  renderCommandsToSection("misc", "misc");
+  renderCommandsToSection("utility", "utility");
 
   sections = document.querySelectorAll(".command-category");
+
   sections.forEach((section) => {
-    if (section.id !== "rng") {
-      section.classList.add("is-hidden");
-    }
+    section.classList.add("is-hidden");
   });
+
+  document.getElementById("moderation").classList.remove("is-hidden");
 
   tabs = document.querySelectorAll("#categoryNav li");
   tabs.forEach((tab) => {
     tab.classList.remove("is-active");
-    if (tab.dataset.category === "rng") {
+    if (tab.dataset.category === "moderation") {
       tab.classList.add("is-active");
     }
   });

@@ -23,11 +23,21 @@ function renderSearchResults(query) {
     categoryNav.classList.remove("fade-out", "is-hidden");
     categoryNav.classList.add("fade-in");
 
-    renderCommandsToSection("rng", "rng");
+    Object.keys(commandPages).forEach((category) => {
+      renderCommandsToSection(category, category);
+    });
+
+    categories.forEach((section) => {
+      if (section.id === "moderation") {
+        section.classList.remove("is-hidden");
+      } else {
+        section.classList.add("is-hidden");
+      }
+    });
 
     tabs.forEach((t) => t.classList.remove("is-active"));
     document
-      .querySelector("#categoryNav li[data-category='rng']")
+      .querySelector("#categoryNav li[data-category='moderation']")
       .classList.add("is-active");
 
     return;
@@ -50,7 +60,6 @@ function renderSearchResults(query) {
 
   matched.forEach((cmd) => {
     const container = document.getElementById(cmd.category);
-
     if (!container) return;
 
     const card = document.createElement("div");
