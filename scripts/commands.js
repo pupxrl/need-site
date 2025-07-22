@@ -116,7 +116,7 @@ const commandPages = {
     {
       name: "help",
       description: "Show help information and available commands.",
-      arguments: "None",
+      arguments: "command",
       permissions: "Everyone",
       aliases: null,
     },
