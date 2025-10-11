@@ -1,0 +1,23 @@
+[
+  {
+    "name": "userinfo",
+    "description": "View information about yourself or a member.",
+    "arguments": "prefix, user",
+    "permissions": "Everyone",
+    "aliases": ";userinfo, ;ui"
+  },
+  {
+    "name": "serverinfo",
+    "description": "View information about the server.",
+    "arguments": "prefix",
+    "permissions": "Everyone",
+    "aliases": ";serverinfo, ;si"
+  },
+  {
+    "name": "vanity",
+    "description": "Manage the server's vanity-role settings.",
+    "arguments": "None",
+    "permissions": "Manage Server",
+    "aliases": null
+  }
+]

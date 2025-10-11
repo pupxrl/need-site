@@ -1,0 +1,51 @@
+[
+  {
+    "name": "/voicecontrol setup",
+    "description": "Setup the voice control system.",
+    "arguments": "None",
+    "permissions": "Administrator",
+    "aliases": null
+  },
+  {
+    "name": "/voicecontrol destroy",
+    "description": "Destroy the voice control system.",
+    "arguments": "None",
+    "permissions": "Administrator",
+    "aliases": null
+  },
+  {
+    "name": "accept",
+    "description": "Accept a user into your voice channel to join.",
+    "arguments": "prefix, user",
+    "permissions": "VC Owner",
+    "aliases": null
+  },
+  {
+    "name": "claim",
+    "description": "Claim ownership of a voice channel.",
+    "arguments": "prefix",
+    "permissions": "VC Owner",
+    "aliases": null
+  },
+  {
+    "name": "lock",
+    "description": "Lock the voice channel.",
+    "arguments": "prefix",
+    "permissions": "VC Owner",
+    "aliases": null
+  },
+  {
+    "name": "unlock",
+    "description": "Unlock the voice channel.",
+    "arguments": "prefix",
+    "permissions": "VC Owner",
+    "aliases": null
+  },
+  {
+    "name": "reject",
+    "description": "Reject someone from joining your voice channel.",
+    "arguments": "prefix",
+    "permissions": "VC Owner",
+    "aliases": null
+  }
+]

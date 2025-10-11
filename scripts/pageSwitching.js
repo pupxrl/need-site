@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const sections = {
     landing: document.getElementById("landing"),
     commands: document.getElementById("commands"),
+    docs: document.getElementById("docs"),
   };
 
   navLinks.forEach((link) => {
@@ -42,5 +43,16 @@ document.addEventListener("DOMContentLoaded", () => {
         c.classList.toggle("is-hidden", c.id !== category);
       });
     });
+  });
+});
+
+document.querySelectorAll("#docs-sidebar .doc-nav-link").forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    const targetId = link.getAttribute("href").substring(1);
+    const targetEl = document.getElementById(targetId);
+    if (targetEl) {
+      targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   });
 });

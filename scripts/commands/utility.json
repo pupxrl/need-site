@@ -1,0 +1,23 @@
+[
+  {
+    "name": "help",
+    "description": "Show help information and available commands.",
+    "arguments": "command",
+    "permissions": "Everyone",
+    "aliases": null
+  },
+  {
+    "name": "/welcome-message",
+    "description": "Manage welcome messages with subcommands to enable (with channel and message) or disable them.",
+    "arguments": "enable, disable",
+    "permissions": "Manage Server",
+    "aliases": null
+  },
+  {
+    "name": "prefix",
+    "description": "View and change the cash's prefix for the current server.",
+    "arguments": "view, set",
+    "permissions": "Administrator",
+    "aliases": null
+  }
+]
