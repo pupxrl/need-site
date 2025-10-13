@@ -84,7 +84,7 @@ body {
 @media screen and (max-width: 768px) {
   .navbar {
     flex-direction: column;
-    width: 90%;
+    width: 30%;
     height: auto;
     top: 1rem;
     padding: 1rem;
@@ -97,8 +97,8 @@ body {
 
   #pfp {
     position: relative;
-    top: auto;
-    left: auto;
+    top: 20px;
+    left: 20px;
     margin-bottom: 0.5rem;
   }
 }
@@ -205,11 +205,13 @@ body {
   #header2 {
     font-size: 1rem;
     text-align: center;
+    width: 200px;
   }
 
   #paragraph2 {
-    font-size: 1.1rem;
+    font-size: 1rem;
     text-align: center;
+    width: 200px;
   }
 
   #landing .button {
@@ -222,7 +224,7 @@ body {
   padding-top: 8rem;
   min-height: 100vh;
   background: rgba(76, 83, 76, 0.1);
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(20px);
   position: relative;
 }
 
@@ -323,12 +325,12 @@ body {
 
 @media screen and (max-width: 768px) {
   #commands {
-    padding-top: 6rem;
+    padding-top: 1rem;
   }
 
   .command-card {
     flex: 1 1 100%;
-    max-width: 100%;
+    max-width: 95%;
   }
 
   #categoryNav li a {
@@ -337,3 +339,22 @@ body {
   }
 }
 
+.command-section {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.8rem;
+}
+
+.command-label {
+  font-weight: bold;
+  color: #9fc9a3;
+  font-size: 0.85rem;
+  margin-bottom: 0.2rem;
+  text-transform: uppercase;
+}
+
+.command-value {
+  font-size: 0.9rem;
+  color: #eaeaea;
+  line-height: 1.4;
+}

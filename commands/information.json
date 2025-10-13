@@ -4,17 +4,17 @@
     "description": "View information about yourself or a member.",
     "arguments": "prefix, user",
     "permissions": "Everyone",
-    "aliases": ";userinfo, ;ui"
+    "aliases": "ui"
   },
   {
     "name": "serverinfo",
     "description": "View information about the server.",
     "arguments": "prefix",
     "permissions": "Everyone",
-    "aliases": ";serverinfo, ;si"
+    "aliases": "si"
   },
   {
-    "name": "vanity",
+    "name": "/vanity",
     "description": "Manage the server's vanity-role settings.",
     "arguments": "None",
     "permissions": "Manage Server",

@@ -1,0 +1,86 @@
+[
+  {
+    "name": "voicecontrol",
+    "description": "Manage your personal channel / VoiceControl settings.",
+    "arguments": "prefix, subcommand",
+    "permissions": "Everyone",
+    "aliases": "vc, voice"
+  },
+  {
+    "name": "voicecontrol setup",
+    "description": "Setup the voice control system.",
+    "arguments": "prefix",
+    "permissions": "Administrator",
+    "aliases": null
+  },
+    {
+    "name": "voicecontrol category",
+    "description": "Redirect voice channels to custom category.",
+    "arguments": "prefix, category",
+    "permissions": "Administrator",
+    "aliases": null
+  },
+  {
+    "name": "voicecontrol destroy",
+    "description": "Destroy the voice control system.",
+    "arguments": "prefix",
+    "permissions": "Administrator",
+    "aliases": null
+  },
+  {
+    "name": "voicecontrol permit",
+    "description": "Allow a user into your voice channel to join.",
+    "arguments": "prefix, user",
+    "permissions": "VC Owner",
+    "aliases": "allow, approve"
+  },
+  {
+    "name": "voicecontrol reject",
+    "description": "Reject someone from joining your voice channel.",
+    "arguments": "prefix user",
+    "permissions": "VC Owner",
+    "aliases": "remove, deny"
+  },
+  {
+    "name": "voicecontrol claim",
+    "description": "Claim ownership of a voice channel if the owner is no longer in it.",
+    "arguments": "prefix",
+    "permissions": "Everyone",
+    "aliases": null
+  },
+  {
+    "name": "voicecontrol lock",
+    "description": "Lock your voice channel.",
+    "arguments": "prefix",
+    "permissions": "VC Owner",
+    "aliases": null
+  },
+  {
+    "name": "voicecontrol unlock",
+    "description": "Unlock your voice channel.",
+    "arguments": "prefix",
+    "permissions": "VC Owner",
+    "aliases": null
+  },
+  {
+    "name": "voicecontrol name",
+    "description": "Rename your voice channel.",
+    "arguments": "prefix, new_name",
+    "permissions": "VC Owner",
+    "aliases": null
+  },
+  {
+    "name": "voicecontrol default",
+    "description": "Default settings from VoiceControl system.",
+    "arguments": "prefix, subcommand",
+    "permissions": "Administrator",
+    "aliases": null
+  },
+  {
+    "name": "voicecontrol default interface",
+    "description": "Toggle or set the interface auto-send for new voice channels.",
+    "arguments": "prefix, \"default\"",
+    "permissions": "Administrator",
+    "aliases": null
+  }
+]

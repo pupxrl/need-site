@@ -2,7 +2,7 @@
   {
     "name": "help",
     "description": "Show help information and available commands.",
-    "arguments": "command",
+    "arguments": "prefix, command",
     "permissions": "Everyone",
     "aliases": null
   },
@@ -15,8 +15,8 @@
   },
   {
     "name": "prefix",
-    "description": "View and change the cash's prefix for the current server.",
-    "arguments": "view, set",
+    "description": "View and change the need's prefix for the current server.",
+    "arguments": "prefix, view, set",
     "permissions": "Administrator",
     "aliases": null
   }

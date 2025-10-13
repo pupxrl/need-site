@@ -1,0 +1,100 @@
+[
+  {
+    "name": "ban",
+    "description": "Ban someone from the server.",
+    "arguments": "prefix, user, reason",
+    "permissions": "ban members",
+    "aliases": null
+  },
+  {
+    "name": "unban",
+    "description": "Unban someone from the server.",
+    "arguments": "prefix, user, reason",
+    "permissions": "ban members",
+    "aliases": null
+  },
+  {
+    "name": "kick",
+    "description": "Kick someone from the server.",
+    "arguments": "prefix, user, reason",
+    "permissions": "kick members",
+    "aliases": null
+  },
+  {
+    "name": "role",
+    "description": "Manage roles and permissions or add a user to a role. Subcommands for managing roles on users (add/remove) and editing role properties (name, permissions).",
+    "arguments": "prefix, user / subcommand",
+    "permissions": "manage roles",
+    "aliases": "r"
+  },
+  {
+    "name": "/nuke",
+    "description": "Duplicate the current channel and delete the original.",
+    "arguments": "None",
+    "permissions": "manage channels",
+    "aliases": null
+  },
+  {
+    "name": "/action-limit",
+    "description": "Configure action limits and whitelists for roles.",
+    "arguments": "enable, disable, set-limit, whitelist-add, whitelist-remove, list-whitelisted-roles, set-log-channel, remove-log-channel",
+    "permissions": "Owner",
+    "aliases": null
+  },
+  {
+    "name": "prune",
+    "description": "Bulk delete messages from a channel.",
+    "arguments": "prefix, amount",
+    "permissions": "manage messages",
+    "aliases": null
+  },
+  {
+    "name": "timeout",
+    "description": "Bulk delete messages from a channel.",
+    "arguments": "prefix, user, duration, reason",
+    "permissions": "moderate members",
+    "aliases": "to"
+  },
+  {
+    "name": "lock",
+    "description": "Lock a channel to prevent members from sending messages or connecting.",
+    "arguments": "prefix, #channel",
+    "permissions": "manage channels",
+    "aliases": null
+  },
+  {
+    "name": "unlock",
+    "description": "Unlock a previously locked channel, restoring message or connection access.",
+    "arguments": "prefix, #channel",
+    "permissions": "manage channels",
+    "aliases": null
+  },
+  {
+    "name": "strip",
+    "description": "Remove all roles that have moderative permissions from a member.",
+    "arguments": "prefix, user",
+    "permissions": "manage roles",
+    "aliases": null
+  },
+  {
+    "name": "warn",
+    "description": "Manage user warnings (add/list/clear).",
+    "arguments": "prefix, user / subcommand",
+    "permissions": "moderate members",
+    "aliases": "w"
+  },
+  {
+    "name": "warn clear",
+    "description": "Clear warnings from a user.",
+    "arguments": null,
+    "permissions": "moderate members",
+    "aliases": null
+  },
+  {
+    "name": "warn list",
+    "description": "List warnings of a user.",
+    "arguments": null,
+    "permissions": "moderate members",
+    "aliases": null
+  }
+]
