@@ -1,0 +1,58 @@
+[
+  {
+    "name": "/vanity",
+    "description": "Configure vanity role feature.",
+    "arguments": "subcommand",
+    "permissions": "administrator",
+    "aliases": null
+  },
+  {
+    "name": "/vanity set-keyword",
+    "description": "Set the vanity keyword e.g \"/need\", to detect if someone puts it in their status.",
+    "arguments": "keyword",
+    "permissions": "administrator",
+    "aliases": null
+  },
+  {
+    "name": "/vanity log-channel",
+    "description": "Set the vanity logging channel to notify when someone puts the keyword in their status.",
+    "arguments": "channel",
+    "permissions": "administrator",
+    "aliases": null
+  },
+  {
+    "name": "/vanity add-role",
+    "description": "Add a role to the vanity roles list, roles will add if keyword is detected in status.",
+    "arguments": "role",
+    "permissions": "administrator",
+    "aliases": null
+  },
+  {
+    "name": "/vanity remove-role",
+    "description": "Remove a role from the vanity roles list, roles will remove if keyword is no longer detected in status.",
+    "arguments": "role",
+    "permissions": "administrator",
+    "aliases": null
+  },
+  {
+    "name": "/vanity view-keyword",
+    "description": "View the current vanity keyword.",
+    "arguments": null,
+    "permissions": "administrator",
+    "aliases": null
+  },
+  {
+    "name": "/vanity set-message",
+    "description": "Set tthe vanity log message, this is the message that will send to the set log channel.",
+    "arguments": "message",
+    "permissions": "administrator",
+    "aliases": null
+  },
+  {
+    "name": "/vanity view-message",
+    "description": "View the current vanity log message.",
+    "arguments": null,
+    "permissions": "administrator",
+    "aliases": null
+  }
+]

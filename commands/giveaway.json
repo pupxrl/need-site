@@ -1,0 +1,86 @@
+[
+  {
+    "name": "/giveaway",
+    "description": "Start and manage giveaways.",
+    "arguments": "subcommand",
+    "permissions": "create events",
+    "aliases": null
+  },
+  {
+    "name": "/giveaway reroll",
+    "description": "Reroll winners.",
+    "arguments": "message_id",
+    "permissions": "create events",
+    "aliases": null
+  },
+  {
+    "name": "/giveaway end",
+    "description": "End a giveaway early.",
+    "arguments": "message_id",
+    "permissions": "create events",
+    "aliases": null
+  },
+  {
+    "name": "/giveaway delete",
+    "description": "Delete a giveaway.",
+    "arguments": "message_id",
+    "permissions": "create events",
+    "aliases": null
+  },
+  {
+    "name": "/giveaway create",
+    "description": "Create a new giveaway.",
+    "arguments": "subcommand",
+    "permissions": "create events",
+    "aliases": null
+  },
+  {
+    "name": "/giveaway create prize",
+    "description": "The prize the user(s) will win.",
+    "arguments": "message",
+    "permissions": "create events",
+    "aliases": null
+  },
+  {
+    "name": "/giveaway create winners",
+    "description": "The amount of winners.",
+    "arguments": "number",
+    "permissions": "create events",
+    "aliases": null
+  },
+  {
+    "name": "/giveaway create duration",
+    "description": "How long the giveaway will last (10m, 2h, etc).",
+    "arguments": "time",
+    "permissions": "create events",
+    "aliases": null
+  },
+  {
+    "name": "/giveaway create required_role",
+    "description": "Optional: role required to have in order to join.",
+    "arguments": "role",
+    "permissions": "create events",
+    "aliases": null
+  },
+  {
+    "name": "/giveaway create color",
+    "description": "Optional: Embed color (hex or name).",
+    "arguments": "color",
+    "permissions": "create events",
+    "aliases": null
+  },
+  {
+    "name": "/giveaway create image",
+    "description": "Optional: Banner image URL.",
+    "arguments": "URL",
+    "permissions": "create events",
+    "aliases": null
+  },
+  {
+    "name": "/giveaway create thumbnail",
+    "description": "Optional: Thumbnail image URL.",
+    "arguments": "URL",
+    "permissions": "create events",
+    "aliases": null
+  }
+]

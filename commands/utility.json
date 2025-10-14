@@ -3,21 +3,21 @@
     "name": "help",
     "description": "Show help information and available commands.",
     "arguments": "prefix, command",
-    "permissions": "Everyone",
+    "permissions": "everyone",
     "aliases": null
   },
   {
     "name": "/welcome-message",
     "description": "Manage welcome messages with subcommands to enable (with channel and message) or disable them.",
     "arguments": "enable, disable",
-    "permissions": "Manage Server",
+    "permissions": "manage server",
     "aliases": null
   },
   {
     "name": "prefix",
     "description": "View and change the need's prefix for the current server.",
     "arguments": "prefix, view, set",
-    "permissions": "Administrator",
+    "permissions": "administrator",
     "aliases": null
   }
 ]

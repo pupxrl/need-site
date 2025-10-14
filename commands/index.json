@@ -1,1 +1,10 @@
-["moderation", "information", "voicecontrol", "utility", "snipe"]
+[
+  "moderation",
+  "information",
+  "voicecontrol",
+  "utility",
+  "snipe",
+  "vanity",
+  "server",
+  "giveaway"
+]

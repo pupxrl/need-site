@@ -1,0 +1,30 @@
+[
+  {
+    "name": "/welcome-message",
+    "description": "Manage welcome messages.",
+    "arguments": "subcommand",
+    "permissions": "manage guild",
+    "aliases": null
+  },
+  {
+    "name": "/welcome-message enable",
+    "description": "Enable welcome messages for the server.",
+    "arguments": "subcommand",
+    "permissions": "manage guild",
+    "aliases": null
+  },
+  {
+    "name": "/welcome-message enable channel",
+    "description": "Channel to send welcome messages.",
+    "arguments": "channel",
+    "permissions": "manage guild",
+    "aliases": null
+  },
+  {
+    "name": "/welcome-message enable message",
+    "description": "Welcome message content use {user} as a placeholder for mentions.",
+    "arguments": "message",
+    "permissions": "manage guild",
+    "aliases": null
+  }
+]

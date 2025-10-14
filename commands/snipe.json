@@ -3,14 +3,14 @@
     "name": "clearsnipe",
     "description": "Clear all deleted messages stored for this channel.",
     "arguments": "prefix",
-    "permissions": "Everyone",
+    "permissions": "everyone",
     "aliases": "cs, clear"
   },
-    {
+  {
     "name": "snipe",
     "description": "Show the last deleted message or a specific one in this channel.",
     "arguments": "prefix, index",
-    "permissions": "Everyone",
+    "permissions": "everyone",
     "aliases": "s"
   }
 ]
