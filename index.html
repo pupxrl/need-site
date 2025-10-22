@@ -38,36 +38,15 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap"
       rel="stylesheet"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Get+Schwifty&display=swap"
-      rel="stylesheet"
-    />
 
     <link rel="stylesheet" href="./css/style.css" />
-
-    <style>
-      .fade-section {
-        transition: opacity 0.3s ease;
-      }
-      .is-hidden {
-        opacity: 0;
-        pointer-events: none;
-        position: absolute;
-        left: -9999px;
-      }
-    </style>
   </head>
 
   <body>
     <canvas id="particles"></canvas>
 
-    <img src="./images/need.ico" id="pfp" alt="Need Icon" />
-
-    <nav
-      class="navbar is-dark is-radiusless"
-      role="navigation"
-      aria-label="main navigation"
-    >
+    <nav class="navbar is-dark is-radiusless">
+      <img src="./images/need.ico" id="pfp" alt="Need Icon" />
       <div class="navbar-brand">
         <a
           role="button"
@@ -84,68 +63,42 @@
 
       <div id="navbarMenu" class="navbar-menu">
         <div class="navbar-end">
-          <a class="navbar-item nav-link" data-target="landing">Home</a>
-          <a class="navbar-item nav-link" data-target="commands">Commands</a>
-          <a class="navbar-item nav-link" data-target="docs">Docs</a>
+          <a class="navbar-item" href="index.html">Home</a>
+          <a class="navbar-item" href="./pages/commands.html">Commands</a>
           <a class="navbar-item" href="https://discord.gg/k76wabDvDU"
             >Support Server</a
           >
           <a
             class="navbar-item has-text-weight-bold"
             href="https://discord.com/oauth2/authorize?client_id=1136001498728386610"
-            >Invite</a
+            >Add to Discord</a
           >
         </div>
       </div>
     </nav>
 
-    <section id="landing" class="section fade-section">
+    <section id="landing" class="section">
       <div class="container">
         <div class="columns is-vcentered">
           <div class="column is-half">
-            <h2 id="header2" class="title is-2 has-text-left">
-              Need is designed to elevate every aspect of your server
+            <h2 id="header2" class="title">
+              Designed to elevate every aspect of your server
             </h2>
-            <p id="paragraph2" class="subtitle is-5 has-text-left">
+            <p id="paragraph2" class="subtitle">
               From moderation to motivation. Stop searching for more. Everything
               you need is right here.
             </p>
+
             <div class="buttons mt-4">
               <a
-                href="https://discord.gg/k76wabDvDU"
-                class="button is-large has-text-white"
-                style="
-                  height: 50px;
-                  font-size: 17px;
-                  width: 180px;
-                  border-radius: 25px;
-                  background: linear-gradient(
-                    0,
-                    rgba(161, 216, 255, 0.05),
-                    rgba(216, 239, 255, 0.1)
-                  );
-                  border: none;
-                "
-              >
-                Invite to Discord
-              </a>
-              <a
+                id="botbtn"
                 href="https://discord.com/discovery/applications/1136001498728386610"
-                class="button is-large has-text-white"
-                style="
-                  height: 50px;
-                  font-size: 17px;
-                  width: 150px;
-                  border-radius: 25px;
-                  background: linear-gradient(
-                    0,
-                    rgba(161, 216, 255, 0.05),
-                    rgba(216, 239, 255, 0.1)
-                  );
-                  border: none;
-                "
+                class="button is-large"
               >
-                Add Need
+                Add to Discord
+              </a>
+              <a href="https://discord.gg/k76wabDvDU" class="button is-large">
+                Support Server
               </a>
             </div>
           </div>
@@ -153,177 +106,17 @@
       </div>
     </section>
 
-    <section id="commands" class="section fade-section is-hidden">
-      <div
-        class="field has-addons is-justify-content-center mb-5"
-        id="commandSearchWrapper"
-      >
-        <div
-          class="control has-icons-left is-expanded"
-          style="max-width: 400px; width: 100%"
-        >
-          <input
-            id="commandSearch"
-            class="input is-rounded"
-            type="text"
-            placeholder="Search commands..."
-          />
-          <span class="icon is-left">
-            <i class="fas fa-search"></i>
-          </span>
-        </div>
-      </div>
-
-      <div class="container">
-        <div
-          class="tabs is-centered is-toggle is-toggle-rounded is-info"
-          id="categoryNav"
-        >
-          <ul></ul>
-        </div>
-
-        <div
-          id="moderation"
-          class="command-category columns is-multiline is-hidden"
-        ></div>
-        <div
-          id="information"
-          class="command-category columns is-multiline is-hidden"
-        ></div>
-        <div
-          id="voicecontrol"
-          class="command-category columns is-multiline is-hidden"
-        ></div>
-        <div
-          id="utility"
-          class="command-category columns is-multiline is-hidden"
-        ></div>
-      </div>
-    </section>
-
-    <section id="docs" class="section fade-section is-hidden">
-      <div class="container">
-        <h2 class="title has-text-centered is-3">Documentation</h2>
-
-        <div class="columns">
-          <div class="column is-three-quarters" id="docs-content">
-            <article class="content">
-              <section id="getting-started">
-                <h3 class="title is-4">Getting Started</h3>
-                <p>
-                  Need is a powerful Discord bot designed to elevate your server
-                  with moderation, utility, and customization features. To
-                  begin, invite the bot using the button above and ensure it has
-                  the appropriate permissions.
-                </p>
-              </section>
-
-              <section id="permissions-required">
-                <h3 class="title is-4">Permissions Required</h3>
-                <ul>
-                  <li><strong>Administrator</strong> (Recommended)</li>
-                  <li>
-                    <strong>Manage Roles</strong> – For moderation and auto-role
-                    features
-                  </li>
-                  <li>
-                    <strong>Manage Messages</strong> – To delete messages with
-                    moderation commands
-                  </li>
-                  <li>
-                    <strong>View Channels</strong>,
-                    <strong>Send Messages</strong>, etc.
-                  </li>
-                </ul>
-              </section>
-
-              <section id="command-prefix">
-                <h3 class="title is-4">Command Prefix</h3>
-                <p>
-                  By default, Need uses <code>/</code> slash commands. No prefix
-                  configuration is needed. Simply type <code>/</code> in your
-                  server to see available commands.
-                </p>
-              </section>
-
-              <section id="features-overview">
-                <h3 class="title is-4">Features Overview</h3>
-                <ul>
-                  <li>
-                    <strong>Moderation:</strong> Ban, kick, mute, warn,
-                    slowmode, etc.
-                  </li>
-                  <li>
-                    <strong>Utility:</strong> Polls, timers, reminders, embeds
-                  </li>
-                  <li>
-                    <strong>Voice Control:</strong> Lock/unlock voice channels,
-                    auto move, VC mute
-                  </li>
-                  <li>
-                    <strong>Leveling:</strong> Custom XP, ranks (coming soon)
-                  </li>
-                  <li>
-                    <strong>Custom Responses:</strong> Add reactions or replies
-                    to messages
-                  </li>
-                </ul>
-              </section>
-
-              <section id="need-help">
-                <h3 class="title is-4">Need Help?</h3>
-                <p>
-                  Join our
-                  <a href="https://discord.gg/k76wabDvDU" target="_blank"
-                    >Support Server</a
-                  >
-                  for detailed guides, FAQs, and community support.
-                </p>
-              </section>
-            </article>
-          </div>
-
-          <nav
-            class="column is-one-quarter"
-            id="docs-sidebar"
-            style="position: sticky; top: 1.5rem"
-          >
-            <aside class="menu">
-              <p class="menu-label">Contents</p>
-              <ul class="menu-list">
-                <li>
-                  <a href="#getting-started" class="doc-nav-link"
-                    >Getting Started</a
-                  >
-                </li>
-                <li>
-                  <a href="#permissions-required" class="doc-nav-link"
-                    >Permissions Required</a
-                  >
-                </li>
-                <li>
-                  <a href="#command-prefix" class="doc-nav-link"
-                    >Command Prefix</a
-                  >
-                </li>
-                <li>
-                  <a href="#features-overview" class="doc-nav-link"
-                    >Features Overview</a
-                  >
-                </li>
-                <li>
-                  <a href="#need-help" class="doc-nav-link">Need Help?</a>
-                </li>
-              </ul>
-            </aside>
-          </nav>
-        </div>
-      </div>
-    </section>
-
-    <script src="./scripts/commands.js"></script>
     <script src="./scripts/particles.js"></script>
-    <script src="./scripts/pageSwitching.js"></script>
-    <script src="./scripts/search.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const burger = document.querySelector(".navbar-burger");
+        const menu = document.querySelector("#navbarMenu");
+
+        burger.addEventListener("click", () => {
+          burger.classList.toggle("is-active");
+          menu.classList.toggle("is-active");
+        });
+      });
+    </script>
   </body>
 </html>

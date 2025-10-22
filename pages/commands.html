@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta property="og:title" content="need commands" />
+    <meta
+      name="description"
+      content="discover and learn about need commands."
+    />
+    <meta
+      property="og:image"
+      content="https://cdn.discordapp.com/attachments/1371995636823625840/1427518591791796326/cropped-need.jpg"
+    />
+    <meta property="og:image:width" content="500" />
+    <meta property="og:image:height" content="500" />
+    <meta property="og:url" content="https://pupxrl.github.io/need-site/" />
+    <meta property="og:type" content="website, docs, bot, portfolio" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:site_name" content="need bot" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="../images/need.ico" />
+    <link rel="icon" href="../images/need.ico" type="image/x-icon" />
+    <title>Need</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../css/commands.css" />
+  </head>
+
+  <body>
+    <nav class="navbar is-dark is-radiusless">
+      <img src="../images/need.ico" id="pfp" alt="Need Icon" />
+      <div class="navbar-brand">
+        <a
+          role="button"
+          class="navbar-burger"
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="navbarMenu"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarMenu" class="navbar-menu">
+        <div class="navbar-end">
+          <a class="navbar-item" href="../index.html">Home</a>
+          <a class="navbar-item" href="commands.html">Commands</a>
+          <a class="navbar-item" href="https://discord.gg/k76wabDvDU"
+            >Support Server</a
+          >
+          <a
+            class="navbar-item has-text-weight-bold"
+            href="https://discord.com/oauth2/authorize?client_id=1136001498728386610"
+            >ADd to Discord</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <section id="commands" class="section">
+      <div class="container">
+        <div class="commands-header has-text-centered mb-6">
+          <h1 class="commands-title">Commands</h1>
+          <p class="commands-subtitle">
+            Explore all commands or search for one specifically
+          </p>
+          <div class="commands-stats">
+            <span id="totalCommands">0 Commands</span> •
+            <span id="totalCategories">0 Categories</span>
+          </div>
+        </div>
+
+        <div id="commandSearchWrapper" class="command-controls">
+          <div class="control category-select">
+            <div class="custom-dropdown">
+              <button id="dropdownButton" class="dropdown-toggle">
+                <i class="fas fa-bars"></i>
+                <span id="selectedCategory">All</span>
+                <i class="fas fa-chevron-down chevron"></i>
+              </button>
+
+              <div id="dropdownMenu" class="dropdown-menu">
+                <div class="dropdown-item" data-value="all">
+                  <i class="fas fa-bars"></i>
+                  <span>All</span>
+                  <span class="badge" id="count-all">0</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="control search-input">
+            <input
+              id="commandSearch"
+              class="input"
+              type="text"
+              placeholder="Search commands..."
+            />
+            <i class="fas fa-search search-icon"></i>
+          </div>
+        </div>
+
+        <div id="commandsContainer" class="commands-grid"></div>
+      </div>
+    </section>
+
+    <script src="../scripts/commands.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const burger = document.querySelector(".navbar-burger");
+        const menu = document.querySelector("#navbarMenu");
+
+        burger.addEventListener("click", () => {
+          burger.classList.toggle("is-active");
+          menu.classList.toggle("is-active");
+        });
+      });
+
+      const toggle = document.querySelector(".dropdown-toggle");
+      const menu = document.getElementById("dropdownMenu");
+
+      toggle.addEventListener("click", () => {
+        menu.classList.toggle("active");
+        toggle.classList.toggle("open");
+      });
+      document.addEventListener("click", (e) => {
+        if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+          menu.classList.remove("active");
+          toggle.classList.remove("open");
+        }
+      });
+    </script>
+  </body>
+</html>

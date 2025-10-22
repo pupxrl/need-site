@@ -1,179 +1,231 @@
+// combined.js
 const commandPages = {};
+let allCommands = [];
+let allCommandCards = [];
 
 async function loadCommandData() {
   try {
-    const res = await fetch("./commands/index.json");
+    const res = await fetch("../commands/index.json");
+    if (!res.ok) throw new Error("index.json not found");
     const categories = await res.json();
+
+    allCommands = [];
+    const select = document.getElementById("categorySelect");
+    if (select) select.innerHTML = `<option value="all">All</option>`;
 
     for (const category of categories) {
       try {
-        const response = await fetch(`./commands/${category}.json`);
+        const response = await fetch(`../commands/${category}.json`);
         if (!response.ok) throw new Error(`${category}.json not found`);
         const data = await response.json();
-        commandPages[category] = data;
+        const commandsWithCategory = data.map((cmd) => ({ ...cmd, category }));
 
-        if (
-          !document.querySelector(
-            `#categoryNav li[data-category="${category}"]`
-          )
-        ) {
-          const ul = document.querySelector("#categoryNav ul");
-          const li = document.createElement("li");
-          li.dataset.category = category;
-          li.innerHTML = `<a>${
-            category.charAt(0).toUpperCase() + category.slice(1)
-          }</a>`;
-          ul.appendChild(li);
-        }
+        commandPages[category] = commandsWithCategory;
+        allCommands.push(...commandsWithCategory);
 
-        if (!document.getElementById(category)) {
-          const container = document.createElement("div");
-          container.id = category;
-          container.className =
-            "command-category columns is-multiline is-hidden";
-          document.querySelector("#commands .container").appendChild(container);
+        if (select) {
+          const option = document.createElement("option");
+          option.value = category;
+          option.textContent =
+            category.charAt(0).toUpperCase() + category.slice(1);
+          select.appendChild(option);
         }
       } catch (err) {
-        console.warn(`Could not load ${category}.json:`, err);
+        console.warn(`Could not load ${category}.json`, err);
         commandPages[category] = [];
       }
     }
+
+    const totalCommands = document.getElementById("totalCommands");
+    const totalCategories = document.getElementById("totalCategories");
+    if (totalCommands)
+      totalCommands.textContent = `${allCommands.length} Commands`;
+    if (totalCategories)
+      totalCategories.textContent = `${categories.length} Categories`;
+
+    document.dispatchEvent(
+      new CustomEvent("commandsLoaded", {
+        detail: { commandPages, allCommands },
+      })
+    );
   } catch (err) {
     console.error("Could not load index.json:", err);
   }
 }
 
-function renderCommandsToSection(category, containerId, searchTerm = "") {
-  const container = document.getElementById(containerId);
+function renderCommands(commands) {
+  const container = document.getElementById("commandsContainer");
   container.innerHTML = "";
 
-  const commands = commandPages[category] || [];
-
-  const filteredCommands = commands.filter((cmd) =>
-    cmd.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
-  if (!filteredCommands.length) {
-    container.innerHTML = `<p style="color: #eaeaea; text-align:center; margin-top:2rem;">No commands found.</p>`;
+  if (!commands || !commands.length) {
+    container.innerHTML = `<p style="text-align:center;color:rgba(234,234,234,0.7);margin-top:2rem;">No commands found.</p>`;
     return;
   }
 
-  filteredCommands.forEach((cmd) => {
+  commands.forEach((cmd) => {
     const card = document.createElement("div");
     card.className = "command-card";
 
-    const sections = [];
+    const header = document.createElement("div");
+    header.className = "command-header";
+    header.innerHTML = `<h3>${cmd.name}</h3>`;
+    card.appendChild(header);
 
-    sections.push(`<h3>${cmd.name}</h3>`);
+    const content = document.createElement("div");
+    content.className = "command-details hidden";
 
-    if (cmd.description) {
-      sections.push(`
-        <div class="command-section">
-          <span class="command-label">Description:</span>
-          <span class="command-value">${cmd.description}</span>
-        </div>
-      `);
-    }
+    if (cmd.description)
+      content.innerHTML += `<div class="command-section"><span class="command-label">Description </span><span class="command-value">${cmd.description}</span></div>`;
+    if (cmd.arguments)
+      content.innerHTML += `<div class="command-section"><span class="command-label">Arguments </span><span class="command-value">${cmd.arguments}</span></div>`;
+    if (cmd.permissions)
+      content.innerHTML += `<div class="command-section"><span class="command-label">Permissions </span><span class="command-value">${cmd.permissions}</span></div>`;
+    if (cmd.aliases)
+      content.innerHTML += `<div class="command-section"><span class="command-label">Aliases </span><span class="command-value">${cmd.aliases}</span></div>`;
 
-    if (cmd.arguments) {
-      sections.push(`
-        <div class="command-section">
-          <span class="command-label">Arguments:</span>
-          <span class="command-value">${cmd.arguments}</span>
-        </div>
-      `);
-    }
-
-    if (cmd.permissions) {
-      sections.push(`
-        <div class="command-section">
-          <span class="command-label">Permissions:</span>
-          <span class="command-value">${cmd.permissions}</span>
-        </div>
-      `);
-    }
-
-    if (cmd.aliases) {
-      sections.push(`
-        <div class="command-section">
-          <span class="command-label">Aliases:</span>
-          <span class="command-value">${cmd.aliases}</span>
-        </div>
-      `);
-    }
-
-    card.innerHTML = sections.join("");
-
+    content.innerHTML += `<div class="command-section"><span class="command-label">Category </span><span class="command-value">${cmd.category}</span></div>`;
+    card.appendChild(content);
     container.appendChild(card);
-  });
-}
 
-function initTabs() {
-  const tabs = document.querySelectorAll("#categoryNav li");
-  const sections = document.querySelectorAll(".command-category");
-  const searchInput = document.getElementById("commandSearch");
-
-  tabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-      searchInput.value = "";
-
-      tabs.forEach((t) => t.classList.remove("is-active"));
-      tab.classList.add("is-active");
-
-      sections.forEach((section) => section.classList.add("is-hidden"));
-
-      const selected = tab.dataset.category;
-      const target = document.getElementById(selected);
-      if (target) {
-        target.classList.remove("is-hidden");
-      }
-
-      renderCommandsToSection(selected, selected);
+    header.addEventListener("click", () => {
+      content.classList.toggle("hidden");
+      card.classList.toggle("expanded");
     });
   });
 }
 
-function initSearch() {
+document.addEventListener("commandsLoaded", (e) => {
+  const { commandPages, allCommands } = e.detail;
+  const dropdownButton = document.getElementById("dropdownButton");
+  const dropdownMenu = document.getElementById("dropdownMenu");
+  const selectedCategory = document.getElementById("selectedCategory");
+  const countAll = document.getElementById("count-all");
+
+  allCommandCards = allCommands;
+
+  if (!dropdownButton || !dropdownMenu) {
+    console.error("Dropdown elements not found:", {
+      dropdownButton,
+      dropdownMenu,
+    });
+    return;
+  }
+
+  console.log(
+    "Populating dropdown with categories:",
+    Object.keys(commandPages)
+  );
+  countAll.textContent = allCommands.length;
+
+  dropdownMenu
+    .querySelectorAll(".dropdown-item:not([data-value='all'])")
+    .forEach((el) => el.remove());
+
+  for (const [category, cmds] of Object.entries(commandPages)) {
+    console.log(
+      `Adding dropdown item for category: ${category}, Commands: ${cmds.length}`
+    );
+    const item = document.createElement("div");
+    item.className = "dropdown-item";
+    item.dataset.value = category;
+    item.innerHTML = `
+      <i class="fas fa-folder"></i>
+      <span>${category.charAt(0).toUpperCase() + category.slice(1)}</span>
+      <span class="badge">${cmds.length}</span>`;
+    dropdownMenu.appendChild(item);
+  }
+
+  console.log("Dropdown menu after population:", dropdownMenu.innerHTML);
+
+  dropdownButton.addEventListener("click", (e) => {
+    e.stopPropagation();
+    console.log(
+      "Dropdown button clicked, toggling menu. Current hidden class:",
+      dropdownMenu.classList.contains("hidden")
+    );
+    dropdownMenu.classList.toggle("hidden");
+    dropdownButton.classList.toggle("open");
+    console.log(
+      "After toggle, hidden class:",
+      dropdownMenu.classList.contains("hidden")
+    );
+  });
+
+  dropdownMenu.addEventListener("click", (e) => {
+    const item = e.target.closest(".dropdown-item");
+    if (!item) return;
+
+    const category = item.dataset.value;
+    selectedCategory.textContent =
+      category.charAt(0).toUpperCase() + category.slice(1);
+    dropdownMenu.classList.add("hidden");
+    dropdownButton.classList.remove("open");
+
+    document.dispatchEvent(
+      new CustomEvent("categoryChange", { detail: category })
+    );
+  });
+
+  document.addEventListener("click", (e) => {
+    if (
+      !dropdownButton.contains(e.target) &&
+      !dropdownMenu.contains(e.target)
+    ) {
+      dropdownMenu.classList.add("hidden");
+      dropdownButton.classList.remove("open");
+    }
+  });
+
   const searchInput = document.getElementById("commandSearch");
-  const searchIcon = searchInput.parentElement.querySelector(".icon i");
+  if (!searchInput) return;
 
-  searchInput.addEventListener("focus", () => {
-    searchIcon.style.color = "#9fc9a3";
-  });
+  searchInput.addEventListener("input", (e) => {
+    const query = e.target.value.trim().toLowerCase();
+    const selectedCategory = document
+      .getElementById("selectedCategory")
+      .textContent.toLowerCase();
 
-  searchInput.addEventListener("blur", () => {
-    searchIcon.style.color = "rgba(234, 234, 234, 0.6)";
-  });
+    let filtered = allCommandCards;
 
-  searchInput.addEventListener("input", () => {
-    const activeTab = document.querySelector("#categoryNav li.is-active");
-    if (activeTab) {
-      const category = activeTab.dataset.category;
-      renderCommandsToSection(category, category, searchInput.value);
+    if (selectedCategory !== "all") {
+      filtered = filtered.filter((cmd) => cmd.category === selectedCategory);
     }
-  });
-}
 
-document.addEventListener("DOMContentLoaded", async () => {
-  await loadCommandData();
-
-  ["moderation", "information", "voicecontrol", "utility", "snipe"].forEach(
-    (cat) => {
-      renderCommandsToSection(cat, cat);
+    if (query) {
+      filtered = filtered.filter((cmd) =>
+        [cmd.name, cmd.description, cmd.category].some((f) =>
+          f?.toLowerCase().includes(query)
+        )
+      );
     }
-  );
 
-  const sections = document.querySelectorAll(".command-category");
-  sections.forEach((section) => section.classList.add("is-hidden"));
-  document.getElementById("moderation").classList.remove("is-hidden");
+    renderCommands(filtered);
+  });
 
-  const tabs = document.querySelectorAll("#categoryNav li");
-  tabs.forEach((tab) => tab.classList.remove("is-active"));
-  const defaultTab = document.querySelector(
-    "#categoryNav li[data-category='moderation']"
-  );
-  defaultTab.classList.add("is-active");
+  document.addEventListener("categoryChange", () => {
+    const query = searchInput.value.trim().toLowerCase();
+    const selectedCategory = document
+      .getElementById("selectedCategory")
+      .textContent.toLowerCase();
 
-  initTabs();
-  initSearch();
+    let filtered = allCommandCards;
+
+    if (selectedCategory !== "all") {
+      filtered = filtered.filter((cmd) => cmd.category === selectedCategory);
+    }
+
+    if (query) {
+      filtered = filtered.filter((cmd) =>
+        [cmd.name, cmd.description, cmd.category].some((f) =>
+          f?.toLowerCase().includes(query)
+        )
+      );
+    }
+
+    renderCommands(filtered);
+  });
+
+  document.dispatchEvent(new CustomEvent("categoryChange", { detail: "all" }));
 });
+
+document.addEventListener("DOMContentLoaded", loadCommandData);

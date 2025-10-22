@@ -1,0 +1,50 @@
+{
+  "categories": [
+    {
+      "id": "getting-started",
+      "title": "Getting Started",
+      "content": [
+        "Need is a powerful Discord bot designed to elevate your server with moderation, utility, and customization features. To begin, invite the bot using the button above and ensure it has the appropriate permissions."
+      ]
+    },
+    {
+      "id": "permissions-required",
+      "title": "Permissions Required",
+      "content": [
+        "<ul>",
+        "<li><strong>Administrator</strong> (Recommended)</li>",
+        "<li><strong>Manage Roles</strong> – For moderation and auto-role features</li>",
+        "<li><strong>Manage Messages</strong> – To delete messages with moderation commands</li>",
+        "<li><strong>View Channels</strong>, <strong>Send Messages</strong>, etc.</li>",
+        "</ul>"
+      ]
+    },
+    {
+      "id": "command-prefix",
+      "title": "Command Prefix",
+      "content": [
+        "By default, Need uses <code>/</code> slash commands. No prefix configuration is needed. Simply type <code>/</code> in your server to see available commands."
+      ]
+    },
+    {
+      "id": "features-overview",
+      "title": "Features Overview",
+      "content": [
+        "<ul>",
+        "<li><strong>Moderation:</strong> Ban, kick, mute, warn, slowmode, etc.</li>",
+        "<li><strong>Utility:</strong> Polls, timers, reminders, embeds</li>",
+        "<li><strong>Voice Control:</strong> Lock/unlock voice channels, auto move, VC mute</li>",
+        "<li><strong>Leveling:</strong> Custom XP, ranks (coming soon)</li>",
+        "<li><strong>Custom Responses:</strong> Add reactions or replies to messages</li>",
+        "</ul>"
+      ]
+    },
+    {
+      "id": "need-help",
+      "title": "Need Help?",
+      "content": [
+        "Join our <a href='https://discord.gg/k76wabDvDU' target='_blank'>Support Server</a> for detailed guides, FAQs, and community support."
+      ]
+    }
+  ]
+}
